@@ -1,0 +1,13 @@
+<script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
+<script type="text/javascript">
+  const h5p_els = document.getElementsByClassName("h5p")
+  for(const el of h5p_els){
+    const h5p_id = el.id
+    const options = {
+    h5pJsonPath:  `/assets/h5p-content/${h5p_id}`,
+    frameJs: '/assets/h5p-standalone/frame.bundle.js',
+    frameCss: '/assets/h5p-standalone/styles/h5p.css',
+    }
+    new H5PStandalone.H5P(el, options);
+  }
+</script>

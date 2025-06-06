@@ -1,0 +1,25 @@
+project:
+  type: math-book
+
+book:
+  title: "Math Book Template"
+  author: "Norah Jones"
+  date: "6/6/2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  math-book-html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: book
+
+
+
