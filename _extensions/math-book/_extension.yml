@@ -12,10 +12,13 @@ contributes:
       toc: true
       html-math-method: mathjax
       footnotes-hover: true
-      pre-render: echo test
-      # format-resources:
-      #   - assets/**
+      format-resources:
+        - assets
       include-in-header:
       - assets/utils/mathjax.html 
       include-after-body:
       - assets/utils/h5p-collector.html
+    
+    pdf:
+      template-partials:
+      - before-title.tex

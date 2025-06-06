@@ -1,5 +1,6 @@
 project:
   type: math-book
+  resources: assets
 
 book:
   title: "Math Book Template"
@@ -18,8 +19,11 @@ format:
     theme:
       - cosmo
       - brand
-  pdf:
+  math-book-pdf:
     documentclass: book
+
+editor:
+  render-on-save: true
 
 
 

@@ -1,6 +1,14 @@
+{{< include _macro_processing.qmd >}}
+
 # Preface {.unnumbered}
 
 This is a Quarto book.
+
+$$
+	\nat \subset \integer \subset \rational \subset \real \subset \complex
+$$ {#eq-1}
+
+@eq-1
 
 ::: {#multiple-choice .h5p}
 :::

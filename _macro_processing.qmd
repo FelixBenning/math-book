@@ -1,0 +1,17 @@
+<!--
+strip latex comments from _macros.tex and treat the result 'asis', i.e.  allow
+pandoc to process the \newcommands 
+
+https://github.com/quarto-dev/quarto-cli/discussions/12838#discussioncomment-13378945
+-->
+
+::: {.content-hidden}
+```{r, echo=FALSE, results='asis'}
+if (knitr::is_html_output()) {
+	system("latexpand macros.tex -o _macros.tex")
+	macros <- readLines('_macros.tex')
+	system("rm _macros.tex")
+	writeLines(macros)
+}
+```
+:::
