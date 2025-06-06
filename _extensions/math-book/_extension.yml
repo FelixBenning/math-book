@@ -6,6 +6,11 @@ contributes:
   project:
     project:
       type: book
+    
+    book:
+      repo-actions: [edit, issue, source]
+      downloads: [pdf]
+      search: true
 
   format: 
     html:
@@ -20,5 +25,6 @@ contributes:
       - assets/utils/h5p-collector.html
     
     pdf:
+      documentclass: book
       template-partials:
       - before-title.tex

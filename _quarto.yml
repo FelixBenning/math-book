@@ -3,9 +3,12 @@ project:
   resources: assets
 
 book:
-  title: "Math Book Template"
-  author: "Norah Jones"
-  date: "6/6/2025"
+  title: "Math Book Template" # TODO: change
+  author: "Felix Benning" # TODO: change
+  date: last-modified
+  site-url: https://FelixBenning.github.io/math-book # TODO: change
+  # favicon: logo.png
+  repo-url: https://github.com/FelixBenning/math-book # TODO: change
   chapters:
     - index.qmd
     - intro.qmd
@@ -17,13 +20,17 @@ bibliography: references.bib
 format:
   math-book-html:
     theme:
-      - cosmo
-      - brand
+      - cosmo # select a theme from (https://bootswatch.com/)
+      - brand # use a _brand.yml file to customize (https://posit-dev.github.io/brand-yml/)
   math-book-pdf:
-    documentclass: book
+    keep-tex: false # set to true to obtain tex files
+    pdf-engine: xelatex # alternatives: pdflatex (old, most common) or lualatex
 
 editor:
   render-on-save: true
+
+comments:
+  hypothesis: true # allow comments (https://web.hypothes.is/)
 
 
 
