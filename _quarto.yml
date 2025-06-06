@@ -12,7 +12,9 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - usage.qmd
+    - extensions.qmd
+    - details.qmd
     - references.qmd
 
 bibliography: references.bib

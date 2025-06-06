@@ -1,0 +1,32 @@
+# Usage guide {#sec-usage-guide}
+
+First, install [Quarto][install quarto], [LaTeX][texlive] and
+[R][^why-r] . To use
+this template type the following into a terminal
+
+```sh
+quarto use template FelixBenning/math-book
+```
+
+::: {.callout-note collapse="true" title="Add to existing project"}
+
+You can also use `quarto add FelixBenning/math-book` to add this template to an
+existing quarto project. However to use the global macros feature, i.e. allow a
+`macros.tex` file defining macros to be used in LaTeX equation, you need to
+manually copy the file `_macro_processing.yml` into your root directory.
+:::
+
+For the standard features refer to [Quarto's documentation][quarto documentation]
+we will focus on the special features of this template.
+
+## Global LaTeX Macros {#sec-global-macros}
+
+
+
+
+[install quarto]: https://quarto.org/docs/get-started/
+[texlive]: https://www.tug.org/texlive/
+[R]: https://cran.r-project.org/mirrors.html
+[quarto documentation]: https://quarto.org/docs/guide/
+
+[^why-r]: required for the global macro feature @sec-global-macros

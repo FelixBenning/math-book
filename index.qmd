@@ -1,16 +1,53 @@
 {{< include _macro_processing.qmd >}}
 
-# Preface {.unnumbered}
+# Overview {.unnumbered}
 
-This is a Quarto book.
+This is a template for a [Quarto] math book or lecture script.
+[Quarto][^quarto-history] is a framework to render Markdown documents into
+`html` and via LaTeX into `pdf`. The reason you may want to target `html`
+is immediately illustrated if you read the web version of this documentation.
+For example, try to hover over the footnote on "Quarto",
+or over the following equation reference @eq-number-hierarchy.
 
+This interactivity is something that is impossible with `pdf`. And since LaTeX
+can only really target `pdf` this is a problem.
+However LaTeX is really good at equations and
+other academic features that make it difficult to replace. [Quarto] provides these features.
+
+1. It has [bibliographic reference
+management](https://quarto.org/docs/authoring/citations.html) that can generate
+citations e.g. @knuth84 based on the cite keys in bibtex `.bibtex` and biblatex
+`.bib` files. Try to hover over the citation!
+2. It has machinery to
+[cross-reference](https://quarto.org/docs/authoring/cross-references.html)
+figures, tables, sections, theorems, etc.
+3. And most importantly for maths, it is integrated with the [mathjax] JavaScript library that can render LaTeX equations on websites, like this one
+for example:
 $$
 	\nat \subset \integer \subset \rational \subset \real \subset \complex
-$$ {#eq-1}
+$$ {#eq-number-hierarchy}
+However, Mathjax is not LaTeX and only provides a subset of its features. This
+leads to certain issues that need to be addressed (details in @sec-mathjax).
 
-@eq-1
+## Equations in Mathjax {#sec-mathjax}
+
+
+## Multiple Choice
+
+H5P's default multiple choice example ([source](https://h5p.org/multichoice)).
+
 
 ::: {#multiple-choice .h5p}
 :::
 
 To learn more about Quarto books visit <https://quarto.org/docs/books>.
+
+[Quarto]: https://quarto.org
+[R markdown]: https://rmarkdown.rstudio.com/
+[pandoc]: https://pandoc.org/
+[mathjax]: https://www.mathjax.org/
+
+[^quarto-history]: [Quarto] is a language agnostic the successor to [R
+Markdown], both of which are built on the universal document converter [Pandoc].
+[R Markdown] allowed for R code snippets to be included in a markdown document
+which were executed before display. [Quarto] also allows this for Python and JavaScript.
