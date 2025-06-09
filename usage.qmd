@@ -1,3 +1,5 @@
+{{< include _macro_processing.qmd >}}
+
 # Usage guide {#sec-usage-guide}
 
 First, install [Quarto][install quarto], [LaTeX][texlive] and
@@ -11,7 +13,7 @@ quarto use template FelixBenning/math-book
 ::: {.callout-note collapse="true" title="Add to existing project"}
 
 You can also use `quarto add FelixBenning/math-book` to add this template to an
-existing quarto project. However to use the global macros feature, i.e. allow a
+existing quarto project. However to use the global macros feature, which allows a
 `macros.tex` file defining macros to be used in LaTeX equation, you need to
 manually copy the file `_macro_processing.yml` into your root directory.
 :::
@@ -19,9 +21,93 @@ manually copy the file `_macro_processing.yml` into your root directory.
 For the standard features refer to [Quarto's documentation][quarto documentation]
 we will focus on the special features of this template.
 
+## H5P Integration
+
+This template supports the addition of H5P files without the need for a separate
+H5P server. H5P files (with the `.h5p` file extension may be added as follows):
+
+1. Change the `.h5p` file extension to a `.zip` extension
+2. unzip the zip file and place the resulting folder (named e.g.
+`my-h5p-folder`) into the folder `assets/h5p-content/` of the Quarto project.
+3. In Quarto markdown file where you want to add the `h5p` content add the following
+
+	```qmd
+	::: {#my-h5p-folder .h5p}
+	:::
+	```
+	or alternatively
+
+	```html
+	<div id="my-h5p-folder" class="h5p"></div>
+	```
+
+::: {.callout-warning title="Possible issue"}
+Historically, every H5P file with the extension `.h5p` used to include the H5P
+libraries necessary to make the content work. More recently, these libraries
+are not always included (see this [GitHub issue](https://github.com/tunapanda/h5p-standalone/issues/149#issuecomment-2713134238)). In this case the `my-h5p-folder` does not include
+folders of the form `H5P.AdvancedText`, `H5P.Audio`, `H5P.Blanks`, etc. But without these libraries the content does not work.
+
+To make it work, simply copy these libraries from an older `h5p` file into this folder (e.g. from the [`multiple-choice` example](https://github.com/FelixBenning/math-book/tree/main/assets/h5p-content/multiple-choice) of this template)
+:::
+
 ## Global LaTeX Macros {#sec-global-macros}
 
+A very important feature for `LaTeX` users is the possibility to define
+custom macros. For example the following custom macros
+```LaTeX
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+```
+can be used to produce $\real \subset \complex$ from `\real \subset \complex`.
 
+::: {.callout-note title="What is the benefit of macros?" collapse="true"}
+The notation for the natural numbers $\nat = \{1,2,3,\dots\}$ requires
+"Blackboard letters" for example. Those can be achieved
+using the command `\mathbb` -- specifically `\mathbb{N}`. A custom macro
+may be defined as follows in LaTeX
+```LaTeX
+\newcommand{\nat}{\mathbb{N}}
+```
+Observe that such custom macros may not only be used to abbreviate commands,
+e.g. `\nat` instead of `\mathbb{N}` to produce $\nat$, but it can also be used
+to create semantic placeholders for symbols that can be changed later.
+For example one may initially choose the letter $\eta$ to denote a step size
+before realizing that this letter is needed for something else. If a `\stepsize` macro is used it is trivial
+to replace
+```LaTeX
+\newcommand{\stepsize}{\eta}
+```
+by a different letter, say $h$,
+```LaTeX
+\newcommand{\stepsize}{h}.
+```
+An update to the command immediately updates every occurrence of `\stepsize`.
+:::
+
+These macro definitions can be placed into a global `macros.tex` file
+and annotated with `LaTeX` comments. This file will be automatically
+included in the `LaTeX` target and therefore the `pdf`. Unfortunately
+the macros cannot be automatically included in the `html` target.
+
+To make sure macros also work for the `html` target it is necessary to add the
+following line to the start of any `.qmd` chapter file.
+```{shortcodes=false}
+{{< include _macro_processing.qmd >}}
+```
+::: {.callout-important}
+The `_macro_processing.qmd` file from this template must be manually added
+to the root of the project, if this template is added to to an existing project.
+:::
+
+A detailed
+reason and more information on this design decision can be found in
+@sec-global-macro-details and also in this [GitHub
+discussion](https://github.com/quarto-dev/quarto-cli/discussions/12838).
+The Quarto developers may add a better mechanism in the future.
+
+
+
+## Aligned-Overset
 
 
 [install quarto]: https://quarto.org/docs/get-started/
