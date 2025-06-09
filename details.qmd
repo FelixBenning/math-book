@@ -1,0 +1,3 @@
+# Details
+
+## Global LaTeX Macros {#sec-global-macro-details}
