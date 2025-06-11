@@ -9,7 +9,9 @@ A template for a quarto book with the following features:
 
 ## Documentation & Demo
 
-here
+You can find the documentation, which also
+acts as a demo here:
+https://FelixBenning.github.io/math-book
 
 ## Installation
 
