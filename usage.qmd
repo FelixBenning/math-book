@@ -373,10 +373,65 @@ numbering simply works. Check both outputs!
 
 ### Aligned-Overset {#sec-aligned-overset}
 
+A `LaTeX` package I love is [`aligned-overset`](https://ctan.org/pkg/aligned-overset). To understand what it does
+let me first explain the command `\overset` with the following demo
+$$
+	x \overset{\text{due to b}}{=} y.
+$$
+This demo is produced by the code
+```LaTeX
+$$
+	x \overset{\text{due to b}}{=} y.
+$$
+```
+The command `\overset{over}{under}` essentially places the first input over the
+second input. It is therefore a wonderful tool for explaining equation steps.
+In an aligned environment however this typically breaks alignment because the
+entire 'stack' is left-aligned if the alignment symbol `&` is placed before. And the
+explanation is usually longer than the `=`, like here
+$$\begin{aligned}
+	x_0
+	&= x_1
+	\\
+	&\overset{\text{due to b}}= x_2
+	\\
+	&= x_3.
+\end{aligned}$$
 
+`aligned-overset` allows the placement of the alignment symbol `&`
+between the `{over}` and `{under}` of `\overset`, i.e.
+```LaTeX
+\overset{over}&{under}
+```
+and aligns the stack only on the `under` part. With this feature it is possible
+to align the equations above like so
+$$\begin{aligned}
+	x_0
+	&= x_1
+	\\
+	\overset{\text{due to b}}&= x_2
+	\\
+	&= x_3
+\end{aligned}$$
+By default `mathjax` does not implement the `aligned-overset` package and
+therefore does not allow this placement of the alignment symbol `&`.
+However, a `mathjax` maintainer ([Davide P. Cervone](https://github.com/dpvc))
+showed me how to configure `mathjax` to allow this placement (see this [GitHub issue](https://github.com/mathjax/MathJax/issues/3367)). This is why the
+equation above works. However his solution only correctly adjusts the white-space
+to the right and may result in overlaps on the left, e.g.
+$$\begin{aligned}
+	x^2 \overset{\text{due to b}}&= y
+	\\
+	&= z.
+\end{aligned}$$
+Nevertheless for all equations, except for the first, this is a good solution and
+works out of the box with this template.
 
 ## Publishing the book as a website
 
+Quarto documents many ways to publish a Quarto book as a website, the way
+I recommend uses [Github pages](https://pages.github.com/) and the command `quarto publish`. [This
+is a direct link to this part of the documentation](https://quarto.org/docs/publishing/github-pages.html#publish-command).
 
 
 [install quarto]: https://quarto.org/docs/get-started/
