@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Usage guide – Math Book Template</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./extensions.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+<script>
+  MathJax = {
+    get_chapter: () => {
+        return document
+          .getElementById("title-block-header")
+          .getElementsByClassName("chapter-number")[0]
+          .textContent;
+    }, // used for chapter numbering
+    loader: {load: ['[tex]/tagformat']},
+    tex: {
+      packages: { "[+]": ["aligned-overset", "tagformat"]},
+      tags: "ams", // should be 'ams', 'none', or 'all'
+      tagformat: { // https://docs.mathjax.org/en/latest/input/tex/extensions/tagformat.html
+        number: (n) => MathJax.config.get_chapter() + '.' + n,
+      },
+    },
+
+    // Implementation of the "aligned-overset" package
+    startup: {
+      ready() {
+        const { MacroMap } = MathJax._.input.tex.SymbolMap;
+        const { Configuration } = MathJax._.input.tex.Configuration;
+        const TexParser = MathJax._.input.tex.TexParser.default;
+        const ParseUtil = MathJax._.input.tex.ParseUtil.default;
+        const NodeUtil = MathJax._.input.tex.NodeUtil.default;
+        new MacroMap(
+          "aligned-overset",
+          {
+            overset: ["AlignSet", "mover", "accent"],
+            underset: ["AlignSet", "munder", "accentunder"],
+          },
+          {
+            AlignSet(parser, name, mtype, atype) {
+              const script = parser.ParseArg(name);
+              const align = parser.GetNext() === "&";
+              if (align) {
+                parser.parse("character", [parser, "&"]);
+                parser.i++;
+              }
+              const base = parser.ParseArg(name);
+              const mo = script.coreMO();
+              const accent =
+                mo.isKind("mo") &&
+                NodeUtil.getMoAttribute(mo, "accent") === true;
+              ParseUtil.checkMovableLimits(base);
+              let node = parser.create("node", mtype, [base, script], {
+                [atype]: accent,
+              });
+              if (align) {
+                node = parser.create("node", "mrow", [
+                  parser.create(
+                    "node",
+                    "mpadded",
+                    [
+                      parser.create("node", "mphantom", [
+                        parser.create("node", "TeXAtom", [base.copy()], {
+                          texClass: 0,
+                        }),
+                      ]),
+                    ],
+                    { width: "50%" }
+                  ),
+                  parser.create("node", "mpadded", [node], {
+                    width: "50%",
+                    lspace: "-50%width",
+                  }),
+                ]);
+              }
+              parser.Push(node);
+            },
+          }
+        );
+        Configuration.create("aligned-overset", {
+          handler: { macro: ["aligned-overset"] },
+        });
+        MathJax.startup.defaultReady();
+      },
+    },
+  };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./usage.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Math Book Template</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/FelixBenning/math-book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Math-Book-Template.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./usage.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Useful extensions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./details.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Details</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#h5p-integration" id="toc-h5p-integration" class="nav-link active" data-scroll-target="#h5p-integration"><span class="header-section-number">1.1</span> H5P Integration</a></li>
+  <li><a href="#sec-global-macros" id="toc-sec-global-macros" class="nav-link" data-scroll-target="#sec-global-macros"><span class="header-section-number">1.2</span> Global LaTeX Macros</a></li>
+  <li><a href="#sec-usage-equations" id="toc-sec-usage-equations" class="nav-link" data-scroll-target="#sec-usage-equations"><span class="header-section-number">1.3</span> Mathematical equations</a>
+  <ul class="collapse">
+  <li><a href="#equations-in-latex" id="toc-equations-in-latex" class="nav-link" data-scroll-target="#equations-in-latex"><span class="header-section-number">1.3.1</span> Equations in LaTeX</a></li>
+  <li><a href="#sec-equations-quarto" id="toc-sec-equations-quarto" class="nav-link" data-scroll-target="#sec-equations-quarto"><span class="header-section-number">1.3.2</span> Equations in Quarto</a></li>
+  <li><a href="#sec-aligned-overset" id="toc-sec-aligned-overset" class="nav-link" data-scroll-target="#sec-aligned-overset"><span class="header-section-number">1.3.3</span> Aligned-Overset</a></li>
+  </ul></li>
+  <li><a href="#publishing-the-book-as-a-website" id="toc-publishing-the-book-as-a-website" class="nav-link" data-scroll-target="#publishing-the-book-as-a-website"><span class="header-section-number">1.4</span> Publishing the book as a website</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/FelixBenning/math-book/edit/main/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FelixBenning/math-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/FelixBenning/math-book/blob/main/usage.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-usage-guide" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+strip latex comments from _macros.tex and treat the result 'asis', i.e.  allow
+pandoc to process the \newcommands 
+
+https://github.com/quarto-dev/quarto-cli/discussions/12838#discussioncomment-13378945
+-->
+<p>First, install <a href="https://quarto.org/docs/get-started/">Quarto</a>, <a href="https://www.tug.org/texlive/">LaTeX</a> and <a href="https://cran.r-project.org/mirrors.html">R</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> . To use this template type the following into a terminal</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template FelixBenning/math-book</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled" title="Add to existing project">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Add to existing project
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can also use <code>quarto add FelixBenning/math-book</code> to add this template to an existing quarto project. However to use the global macros feature, which allows a <code>macros.tex</code> file defining macros to be used in LaTeX equation, you need to manually copy the file <code>_macro_processing.yml</code> into your root directory.</p>
+</div>
+</div>
+</div>
+<p>For the standard features refer to <a href="https://quarto.org/docs/guide/">Quarto’s documentation</a> we will focus on the features specific or at least important to this template.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the web version of this documentation, try to click on the GitHub symbol <i class="fa-brands fa-github" aria-label="github"></i> next to the title in the top left. If you read it on a smaller device you may first need to open the left sidebar. This will lead you to the GitHub repository of this template. Next to it is a button to download the <code>pdf</code> version.</p>
+<p>If your device is wide enough for the Table of Contents to be displayed on the right, you can click on “<i class="fa-brands fa-github" aria-label="github"></i> View source” to be directed straight to the <code>.qmd</code> file that produced this chapter. This way you can see how certain features are used by example.</p>
+<p>There is also an “<i class="fa-brands fa-github" aria-label="github"></i> Edit this page” button. If someone finds a spelling error for example this allows them to suggest an edit. Note that if they do not have access to the GitHub repository they cannot change it directly.</p>
+</div>
+</div>
+<section id="h5p-integration" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="h5p-integration"><span class="header-section-number">1.1</span> H5P Integration</h2>
+<p>This template includes the <a href="https://github.com/tunapanda/h5p-standalone"><code>tunapanda/h5p-standalone</code></a> project and thereby supports the addition of H5P files without the need for a separate H5P server. H5P files (with the <code>.h5p</code> file extension may be added as follows):</p>
+<ol type="1">
+<li><p>Change the <code>.h5p</code> file extension to a <code>.zip</code> extension</p></li>
+<li><p>unzip the zip file and place the resulting folder (referred to as <code>my-h5p-folder</code> in the following) into the folder <code>assets/h5p-content/</code> of the Quarto project.</p></li>
+<li><p>In Quarto markdown file where you want to add the <code>h5p</code> content add the following</p>
+<pre class="qmd"><code>::: {#my-h5p-folder .h5p}
+:::</code></pre>
+<p>or alternatively</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"my-h5p-folder"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"h5p"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled" title="Possible issue: Missing Libraries">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Possible issue: Missing Libraries
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Historically, every H5P file with the extension <code>.h5p</code> used to include the H5P libraries necessary to make the content work. More recently, these libraries are not always included (see this <a href="https://github.com/tunapanda/h5p-standalone/issues/149#issuecomment-2713134238">GitHub issue</a>). In this case the <code>my-h5p-folder</code> does not include folders of the form <code>H5P.AdvancedText</code>, <code>H5P.Audio</code>, <code>H5P.Blanks</code>, etc. But without these libraries the content does not work.</p>
+<p>To make it work, simply copy these libraries from an older <code>h5p</code> file into this folder (e.g.&nbsp;from the <a href="https://github.com/FelixBenning/math-book/tree/main/assets/h5p-content/multiple-choice"><code>multiple-choice</code> example</a> of this template)</p>
+</div>
+</div>
+</section>
+<section id="sec-global-macros" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-global-macros"><span class="header-section-number">1.2</span> Global LaTeX Macros</h2>
+<p>A very important feature for <code>LaTeX</code> users is the possibility to define custom macros. For example the following custom macros</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\real</span>}{<span class="fu">\mathbb</span>{R}}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\complex</span>}{<span class="fu">\mathbb</span>{C}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>can be used to produce <span class="math inline">\(\mathbb{R}\subset \mathbb{C}\)</span> from <code>\real \subset \complex</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="What is the benefit of macros?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is the benefit of macros?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The notation for the natural numbers <span class="math inline">\(\mathbb{N}= \{1,2,3,\dots\}\)</span> requires “Blackboard letters” for example. Those can be achieved using the command <code>\mathbb</code> – specifically <code>\mathbb{N}</code>. A custom macro may be defined as follows in LaTeX</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\nat</span>}{<span class="fu">\mathbb</span>{N}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Observe that such custom macros may not only be used to abbreviate commands, e.g.&nbsp;<code>\nat</code> instead of <code>\mathbb{N}</code> to produce <span class="math inline">\(\mathbb{N}\)</span>, but it can also be used to create semantic placeholders for symbols that can be changed later. For example one may initially choose the letter <span class="math inline">\(\eta\)</span> to denote a step size before realizing that this letter is needed for something else. If a <code>\stepsize</code> macro is used it is trivial to replace</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\stepsize</span>}{<span class="fu">\eta</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>by a different letter, say <span class="math inline">\(h\)</span>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\stepsize</span>}{h}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>An update to the command immediately updates every occurrence of <code>\stepsize</code>.</p>
+</div>
+</div>
+</div>
+<p>These macro definitions can be placed into a global <code>macros.tex</code> file and annotated with <code>LaTeX</code> comments. This file will be automatically included in the <code>LaTeX</code> target and therefore the <code>pdf</code>.</p>
+<p>Unfortunately the macros cannot be automatically included in the <code>html</code> target. To make sure macros also work for the <code>html</code> target it is necessary to add the following line to the start of any <code>.qmd</code> chapter file.</p>
+<pre data-shortcodes="false"><code>{{&lt; include _macro_processing.qmd &gt;}}</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This templates includes the <code>_macro_processing.qmd</code> file in the root directory. If this template is added to an existing project, this file must be manually added to the root of the project.</p>
+</div>
+</div>
+<p>Details about this design can be found in <a href="details.html#sec-global-macro-details" class="quarto-xref"><span>Section 3.1</span></a> and also in this <a href="https://github.com/quarto-dev/quarto-cli/discussions/12838">GitHub discussion</a>. The Quarto developers may add a better mechanism in the future.</p>
+</section>
+<section id="sec-usage-equations" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-usage-equations"><span class="header-section-number">1.3</span> Mathematical equations</h2>
+<p>To understand how Quarto deals with mathematical equations it is necessary to understand how equations are handled in <code>LaTeX</code> and <code>html</code> (i.e.&nbsp;the JavaScript libraries <a href="https://www.mathjax.org/"><code>mathjax</code></a> or <a href="https://katex.org/"><code>KaTeX</code></a>). Readers that understand equations in Quarto and their limitations may want to skip to <a href="#sec-aligned-overset" class="quarto-xref"><span>Section 1.3.3</span></a> where the <code>aligned-overset</code> feature is discussed that is special to this template.</p>
+<p><code>LaTeX</code> is built on <code>TeX</code> which simply toggles between ‘normal mode’ and ‘math mode’ using dollar signs e.g.&nbsp;<code>$e^{i\pi} + 1 = 0$</code> renders as: <span class="math inline">\(e^{i\pi} + 1 = 0\)</span>. For display equations <code>TeX</code> allows for the use of double dollar signs, e.g.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$f'(x) = </span><span class="sc">\lim</span><span class="ss">_{h </span><span class="sc">\to</span><span class="ss"> 0} </span><span class="sc">\frac</span><span class="ss">{f(x+h) - f(x)}{h}$$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>which is rendered like this <span class="math display">\[
+    f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}.
+\]</span> JavaScript libraries like <a href="https://www.mathjax.org/">mathjax</a> or <a href="https://katex.org/">katex</a> only implement math mode and generally scan for this dollar syntax in an <code>html</code> page to process it. However, at least mathjax can also be configured to work with the more advanced equation environments provided by LaTeX.</p>
+<section id="equations-in-latex" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="equations-in-latex"><span class="header-section-number">1.3.1</span> Equations in LaTeX</h3>
+<p>However <code>LaTeX</code> built more sophisticated display equation environments on top of this simple toggle and it is therefore <a href="https://tex.stackexchange.com/questions/503/why-is-preferable-to">not recommended</a> to use these primitive <code>TeX</code> macros for display equations in LaTeX. Instead of <code>$$ math $$</code> LaTeX authors are encouraged to use the syntax</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">environment</span>}</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    math</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">environment</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here the word <code>environment</code> is replaced by one of the following:</p>
+<ol type="1">
+<li><p><code>equation</code> results in a numbered display equation, <code>equation*</code> in an un-numbered display equation.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>\[...\]</code> is an alias for the <code>equation*</code> environment.</p>
+</div>
+</div>
+<p>In contrast to the primitive <code>TeX</code> syntax (<code>$$ ... $$</code>), <code>LaTeX</code> equations adjusts the spacing of the equation depending on the length of the sentence before and after the equation. If the line before the equation only contains a single word, the equation is packed tighter since there is already a lot of white space to the right of this word.</p></li>
+<li><p><code>align</code> is a numbered display equation environment that allows the user to set alignment points with <code>&amp;</code> letters. For example</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ss">    (a + b)^2</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp;= (a + b)(a + b) </span><span class="sc">\\</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp;= a^2 + ab + ba + b^2 </span><span class="sc">\\</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    &amp;= a^2 + 2ab + b^2</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>which is roughly<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> rendered as</p>
+<p><span class="math display">\[\begin{align}
+     \tag{1}
+     (a + b)^2
+     &amp;= (a + b)(a + b) \\
+     \tag{2}
+     &amp;= a^2 + ab + ba + b^2 \\
+     \tag{3}
+     &amp;= a^2 + 2ab + b^2
+\end{align}\]</span></p>
+<p>The <code>align*</code> environment is again the un-numbered pendant which results in <span class="math display">\[
+\begin{aligned}
+(a + b)^2 &amp;= (a + b)(a + b) \\
+         &amp;= a^2 + ab + ba + b^2 \\
+         &amp;= a^2 + 2ab + b^2
+\end{aligned}
+\]</span></p></li>
+<li><p><code>alignat</code> (or <code>alignat*</code>) works similar to <code>align</code> (or <code>align*</code>), but allows for multiple alignment columns.</p></li>
+</ol>
+</section>
+<section id="sec-equations-quarto" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="sec-equations-quarto"><span class="header-section-number">1.3.2</span> Equations in Quarto</h3>
+<p>Quarto essentially only allows the dollar sign syntax. However, the display equations using double dollar signs (<code>$$ ... $$</code>) are converted to LaTeX <code>equation</code> environments when targeting <code>pdf</code> via <code>LaTeX</code>. More specifically, un-annotated equations are converted to un-numbered <code>equation*</code> environments while a ‘tagged equation’</p>
+<pre class="qmd"><code>$$
+    f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$ {#eq-differentiation}</code></pre>
+<p>is converted into a numbered equation</p>
+<pre><code>\begin{equation}
+    \label{eq-differentiation}
+    f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\end{equation}</code></pre>
+<p>rendered in <code>html</code> as <span id="eq-differentiation"><span class="math display">\[
+    f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\tag{1.1}\]</span></span></p>
+<p>The key <code>@eq-differentiation</code> can be used to produce a link (<a href="#eq-differentiation" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>).</p>
+<p>Unfortunately Quarto does not support aligned equations using the <code>align</code> environment. However it is possible to use the <code>aligned</code> environment inside of math mode; similarly the <code>alignedat</code> environment can be used in math mode in place of <code>alignat</code>.</p>
+<p>To produce an aligned equation one can therefore use the syntax</p>
+<pre class="qmd"><code>$$
+\begin{aligned}
+    (a + b)^2
+    &amp;= (a + b)(a + b) \\
+    &amp;= a^2 + ab + ba + b^2 \\
+    &amp;= a^2 + 2ab + b^2
+\end{aligned}
+$$ {#eq-aligned-demo}</code></pre>
+<p>This renders as <span id="eq-aligned-demo"><span class="math display">\[
+\begin{aligned}
+    (a + b)^2
+    &amp;= (a + b)(a + b) \\
+    &amp;= a^2 + ab + ba + b^2 \\
+    &amp;= a^2 + 2ab + b^2
+\end{aligned}
+\tag{1.2}\]</span></span> Observe that the ‘Quarto-way’ to tag equations only allows for one label per equation which is different from line-by-line numbering that LaTeX provides with the <code>align</code> environment. This is an unsolved <a href="https://github.com/quarto-dev/quarto-cli/issues/2275">issue</a> at the moment.</p>
+<p>There are two possible <strong>workarounds</strong>. The <a href="#workaround-1">first workaround</a> I strongly recommend against, under the assumption that:</p>
+<ul>
+<li>You want to reference equations from different chapters.</li>
+<li>You want to keep the equation preview on hover in <code>html</code>.</li>
+</ul>
+<p>I recommend the <a href="#workaround-2">second workaround</a> if you are willing to duplicate the equation for the few cases you actually need to reference particular lines in aligned equations. This assumes that:</p>
+<ul>
+<li>Aligned equations explain how to get from the first element to the last. Afterwards the steps in the middle can generally be forgotten. So in the vast majority of cases it is unnecessary to label individual lines.</li>
+</ul>
+<div id="workaround-1" class="callout callout-style-default callout-note callout-titled" title="Workaround 1: Ignore Quarto">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Workaround 1: Ignore Quarto
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Recall that <code>mathjax</code> <em>can</em> deal with LaTeX equation environments? Instead of the dollar syntax you can simply place naked <code>\begin{...} \end{...}</code> tags into your <code>.qmd</code> files. This will be correctly rendered by <code>mathjax</code> in <code>html</code> and will correctly be converted into <code>LaTeX</code>. But there are caveats.</p>
+<p>The first caveat can be fixed: <code>mathjax</code> does not treat <code>equation</code> differently from <code>equation*</code> by default and omits equation numbers altogether by default. This setting can be changed and <code>Mathjax</code> is already configured to behave like LaTeX in this template (this is not the default of Quarto).</p>
+<p>But since the <code>mathjax</code> equation numbering is independent of Quartos, the numbering is going to be incorrect if you use both. For this reason <a href="https://github.com/quarto-dev/quarto-cli/issues/2275#issuecomment-1399047519">some authors recommend never using the Quarto syntax</a> and only relying on <code>mathjax</code> for equation numbering. To do so simply use the <code>\label{eq-name}</code> and <code>\ref{eq-name}</code> tags you may know from <code>LaTeX</code>. However,</p>
+<ol type="1">
+<li><code>mathjax</code> cannot see anything beyond the current <code>html</code> page. In particular it cannot see the equations in other chapters, which makes it impossible to reference equations from other chapters with this approach.</li>
+<li>The hover-over (e.g. <a href="#eq-aligned-demo" class="quarto-xref">Equation&nbsp;<span>1.2</span></a>) Quarto provides will be broken</li>
+<li><code>mathjax</code> does not know the chapter it is in, so it cannot easily use the format <code>(1.3)</code> where <code>1</code> refers to the chapter and <code>3</code> means it is the third equation of this chapter. The <a href="https://docs.mathjax.org/en/latest/input/tex/extensions/tagformat.html"><code>tagformat</code></a> of mathjax can however be changed and this template implements a heuristic to find the correct chapter number (assumes there is only one top level heading per <code>.qmd</code> file).</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="workaround-2" class="callout callout-style-default callout-note callout-titled" title="Workaround 2: Case-by-case treatment">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Workaround 2: Case-by-case treatment
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Typically, you do not need to reference individual lines in an equation. The following workaround works well if you only need this in a handful of places and only reference these individual equations within the same chapter. It works by duplicating the equation and providing a version for the <code>html</code> target separately for a version for the <code>pdf</code> (i.e.&nbsp;<code>LaTeX</code> target). It looks like this:</p>
+<p><span id="eq-test"><span class="math display">\[
+    \begin{align}
+        a &amp;= b \tag{a}\\
+        &amp;=c \tag{b}
+    \end{align}
+\tag{1.3}\]</span></span></p>
+<p><code>&lt;</code> Text before you want to reference the equation.<code>&gt;</code> Equation reference: <span><a href="#eq-test" class="quarto-xref">Equation&nbsp;<span>1.3</span></a> (a)</span> </p>
+<p>This is achieved using the following code that introduces a case-by-case treatment of the output</p>
+<pre class="qmd"><code>::: {.content-visible when-format="html"}
+$$
+    \begin{align}
+        a &amp;= b \tag{a}\\
+        &amp;=c \tag{b}
+    \end{align}
+$$ {#eq-test}
+:::
+::: {.content-visible when-format="pdf"}
+    \begin{align}
+        a &amp;= b \label{eq-a}\\
+        &amp;=c \label{eq-b}
+    \end{align}
+:::
+
+`&lt;` Text before you want to reference the equation. `&gt;`
+Equation reference:
+[@eq-test (a)]{.content-visible when-format="html"}
+[Equation \ref{eq-a}]{.content-visible when-format="pdf"}</code></pre>
+<p>Note that <code>\begin{align}</code> is invalid syntax inside the math environment for <code>LaTeX</code> but it is accepted by <code>mathjax</code>. This allows double tags for the <code>html</code> target. In <code>LaTeX</code> you cannot have these duplicate tags, but you can use the fact that Quarto converts equation references into the <code>LaTeX</code> reference system and <code>LaTeX</code> will then take all labels into consideration and the numbering simply works. Check both outputs!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-aligned-overset" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="sec-aligned-overset"><span class="header-section-number">1.3.3</span> Aligned-Overset</h3>
+<p>A <code>LaTeX</code> package I love is <a href="https://ctan.org/pkg/aligned-overset"><code>aligned-overset</code></a>. To understand what it does let me first explain the command <code>\overset</code> with the following demo <span class="math display">\[
+    x \overset{\text{due to b}}{=} y.
+\]</span> This demo is produced by the code</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ss">    x </span><span class="sc">\overset</span><span class="ss">{</span><span class="sc">\text</span>{due to b}<span class="ss">}{=} y.</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ss">$$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The command <code>\overset{over}{under}</code> essentially places the first input over the second input. It is therefore a wonderful tool for explaining equation steps. In an aligned environment however this typically breaks alignment because the entire ‘stack’ is left-aligned if the alignment symbol <code>&amp;</code> is placed before. And the explanation is usually longer than the <code>=</code>, like here <span class="math display">\[\begin{aligned}
+    x_0
+    &amp;= x_1
+    \\
+    &amp;\overset{\text{due to b}}= x_2
+    \\
+    &amp;= x_3.
+\end{aligned}\]</span></p>
+<p><code>aligned-overset</code> allows the placement of the alignment symbol <code>&amp;</code> between the <code>{over}</code> and <code>{under}</code> of <code>\overset</code>, i.e.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\overset</span>{over}&amp;{under}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and aligns the stack only on the <code>under</code> part. With this feature it is possible to align the equations above like so <span class="math display">\[\begin{aligned}
+    x_0
+    &amp;= x_1
+    \\
+    \overset{\text{due to b}}&amp;= x_2
+    \\
+    &amp;= x_3
+\end{aligned}\]</span> By default <code>mathjax</code> does not implement the <code>aligned-overset</code> package and therefore does not allow this placement of the alignment symbol <code>&amp;</code>. However, a <code>mathjax</code> maintainer (<a href="https://github.com/dpvc">Davide P. Cervone</a>) showed me how to configure <code>mathjax</code> to allow this placement (see this <a href="https://github.com/mathjax/MathJax/issues/3367">GitHub issue</a>). This is why the equation above works. However his solution only correctly adjusts the white-space to the right and may result in overlaps on the left, e.g. <span class="math display">\[\begin{aligned}
+    x^2 \overset{\text{due to b}}&amp;= y
+    \\
+    &amp;= z.
+\end{aligned}\]</span> Nevertheless for all equations, except for the first, this is a good solution and works out of the box with this template.</p>
+</section>
+</section>
+<section id="publishing-the-book-as-a-website" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="publishing-the-book-as-a-website"><span class="header-section-number">1.4</span> Publishing the book as a website</h2>
+<p>Quarto documents many ways to publish a Quarto book as a website, the way I recommend uses <a href="https://pages.github.com/">Github pages</a> and the command <code>quarto publish</code>. <a href="https://quarto.org/docs/publishing/github-pages.html#publish-command">This is a direct link to this part of the documentation</a>.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>required for the global macro feature <a href="#sec-global-macros" class="quarto-xref"><span>Section 1.2</span></a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>due to the issues with equation numbering in quarto explained in <a href="#sec-equations-quarto" class="quarto-xref"><span>Section 1.3.2</span></a> every line was manually tagged using <code>\tag</code> here instead of automatically numbered.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
+<script type="text/javascript">
+  const h5p_els = document.getElementsByClassName("h5p")
+  for(const el of h5p_els){
+    const h5p_id = el.id
+    const options = {
+    h5pJsonPath:  `/assets/h5p-content/${h5p_id}`,
+    frameJs: '/assets/h5p-standalone/frame.bundle.js',
+    frameCss: '/assets/h5p-standalone/styles/h5p.css',
+    }
+    new H5PStandalone.H5P(el, options);
+  }
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/FelixBenning\.github\.io\/math-book");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./extensions.html" class="pagination-link" aria-label="Useful extensions">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Useful extensions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/FelixBenning/math-book/edit/main/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FelixBenning/math-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/FelixBenning/math-book/blob/main/usage.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
