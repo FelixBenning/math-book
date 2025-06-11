@@ -6,7 +6,7 @@ book:
   title: "Math Book Template" # TODO: change
   author: "Felix Benning" # TODO: change
   date: last-modified
-  site-url: https://FelixBenning.github.io/math-book # TODO: change
+  site-url: https://unassuming.page/math-book # TODO: change
   # favicon: logo.png
   repo-url: https://github.com/FelixBenning/math-book # TODO: change
   chapters:
@@ -25,6 +25,7 @@ format:
       - brand # use a _brand.yml file to customize (https://posit-dev.github.io/brand-yml/)
   math-book-pdf:
     keep-tex: false # set to true to obtain tex files
+    cite-method: biblatex # or natbib
     pdf-engine: pdflatex # xelatex # alternatives: pdflatex (old, most common) or lualatex
 
 editor:
