@@ -291,9 +291,9 @@ J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https
   for(const el of h5p_els){
     const h5p_id = el.id
     const options = {
-    h5pJsonPath:  `/assets/h5p-content/${h5p_id}`,
-    frameJs: '/assets/h5p-standalone/frame.bundle.js',
-    frameCss: '/assets/h5p-standalone/styles/h5p.css',
+    h5pJsonPath:  `assets/h5p-content/${h5p_id}`,
+    frameJs: 'assets/h5p-standalone/frame.bundle.js',
+    frameCss: 'assets/h5p-standalone/styles/h5p.css',
     }
     new H5PStandalone.H5P(el, options);
   }
