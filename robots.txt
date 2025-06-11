@@ -1,1 +1,1 @@
-Sitemap: https://FelixBenning.github.io/math-book/sitemap.xml
+Sitemap: https://unassuming.page/math-book/sitemap.xml

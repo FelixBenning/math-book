@@ -94,7 +94,7 @@
     "href": "extensions.html",
     "title": "2  Useful extensions",
     "section": "",
-    "text": "You may find the following quarto extensions useful\n\nCallouty Theorems wraps Theorems and Proofs into a callout block of your choosing (in particular proofs can be made collapsible)\nLatex Environment wraps quarto divs into a LaTeX environment of your choosing\ntikz A filter that renders PGF/TikZ diagrams in HTML as SVG.\nhoneypot Add hidden instructions to HTML homework assignments to help detect cheating by unauthorized LLM usage.",
+    "text": "You may find the following quarto extensions useful\n\nCallouty Theorems wraps Theorems and Proofs into a callout block of your choosing (in particular proofs can be made collapsible)\nLatex Environment wraps quarto divs into a LaTeX environment of your choosing\nQuarto TikZ A filter that renders PGF/TikZ diagrams in HTML as SVG.\nhoneypot Add hidden instructions to HTML homework assignments to help detect cheating by unauthorized LLM usage.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Useful extensions</span>"
     ]

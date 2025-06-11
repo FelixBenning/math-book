@@ -261,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><strong><a href="https://github.com/sun123zxy/quarto-callouty-theorem">Callouty Theorems</a></strong> wraps Theorems and Proofs into a callout block of your choosing (in particular proofs can be made collapsible)</li>
 <li><strong><a href="https://github.com/quarto-ext/latex-environment">Latex Environment</a></strong> wraps quarto divs into a LaTeX environment of your choosing</li>
-<li><strong><a href="https://github.com/danmackinlay/quarto_tikz">tikz</a></strong> A filter that renders PGF/TikZ diagrams in HTML as SVG.</li>
+<li><strong><a href="https://github.com/danmackinlay/quarto_tikz">Quarto TikZ</a></strong> A filter that renders PGF/TikZ diagrams in HTML as SVG.</li>
 <li><strong><a href="https://github.com/jmgirard/honeypot">honeypot</a></strong> Add hidden instructions to HTML homework assignments to help detect cheating by unauthorized LLM usage.</li>
 </ol>
 
@@ -353,7 +353,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/FelixBenning\.github\.io\/math-book");
+        var filterRegex = new RegExp("https:\/\/unassuming\.page\/math-book");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

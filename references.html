@@ -370,7 +370,7 @@ J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/FelixBenning\.github\.io\/math-book");
+        var filterRegex = new RegExp("https:\/\/unassuming\.page\/math-book");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
