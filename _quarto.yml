@@ -11,7 +11,6 @@ book:
   repo-url: https://github.com/FelixBenning/math-book # TODO: change
   chapters:
     - index.qmd
-    - intro.qmd
     - usage.qmd
     - extensions.qmd
     - details.qmd

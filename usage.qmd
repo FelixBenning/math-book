@@ -19,16 +19,35 @@ manually copy the file `_macro_processing.yml` into your root directory.
 :::
 
 For the standard features refer to [Quarto's documentation][quarto documentation]
-we will focus on the special features of this template.
+we will focus on the features specific or at least important to this template.
+
+::: {.callout-tip}
+In the web version of this documentation, try to click on the GitHub symbol {{<
+fa brands github >}} next to the title in the top left. If you read it on a
+smaller device you may first need to
+open the left sidebar. This will lead you to the GitHub repository of this
+template. Next to it is a button to download the `pdf` version.
+
+If your device is wide enough for the Table of Contents to
+be displayed on the right, you can click on "{{< fa brands github >}} View source" to be
+directed straight to the `.qmd` file that produced this chapter. This way you
+can see how certain features are used by example.
+
+There is also an "{{< fa brands github >}} Edit this page" button. If someone
+finds a spelling error for example this allows them to suggest an edit. Note
+that if they do not have access to the GitHub repository they cannot change it
+directly.
+:::
 
 ## H5P Integration
 
-This template supports the addition of H5P files without the need for a separate
+This template includes the [`tunapanda/h5p-standalone`](https://github.com/tunapanda/h5p-standalone) project and thereby
+supports the addition of H5P files without the need for a separate
 H5P server. H5P files (with the `.h5p` file extension may be added as follows):
 
 1. Change the `.h5p` file extension to a `.zip` extension
-2. unzip the zip file and place the resulting folder (named e.g.
-`my-h5p-folder`) into the folder `assets/h5p-content/` of the Quarto project.
+2. unzip the zip file and place the resulting folder (referred to as
+`my-h5p-folder` in the following) into the folder `assets/h5p-content/` of the Quarto project.
 3. In Quarto markdown file where you want to add the `h5p` content add the following
 
 	```qmd
@@ -41,7 +60,7 @@ H5P server. H5P files (with the `.h5p` file extension may be added as follows):
 	<div id="my-h5p-folder" class="h5p"></div>
 	```
 
-::: {.callout-warning title="Possible issue"}
+::: {.callout-warning title="Possible issue: Missing Libraries"}
 Historically, every H5P file with the extension `.h5p` used to include the H5P
 libraries necessary to make the content work. More recently, these libraries
 are not always included (see this [GitHub issue](https://github.com/tunapanda/h5p-standalone/issues/149#issuecomment-2713134238)). In this case the `my-h5p-folder` does not include
@@ -77,42 +96,297 @@ to replace
 ```LaTeX
 \newcommand{\stepsize}{\eta}
 ```
-by a different letter, say $h$,
+by a different letter, say $h$.
 ```LaTeX
-\newcommand{\stepsize}{h}.
+\newcommand{\stepsize}{h}
 ```
 An update to the command immediately updates every occurrence of `\stepsize`.
 :::
 
 These macro definitions can be placed into a global `macros.tex` file
 and annotated with `LaTeX` comments. This file will be automatically
-included in the `LaTeX` target and therefore the `pdf`. Unfortunately
-the macros cannot be automatically included in the `html` target.
+included in the `LaTeX` target and therefore the `pdf`.
 
+Unfortunately the macros cannot be automatically included in the `html` target.
 To make sure macros also work for the `html` target it is necessary to add the
 following line to the start of any `.qmd` chapter file.
 ```{shortcodes=false}
 {{< include _macro_processing.qmd >}}
 ```
 ::: {.callout-important}
-The `_macro_processing.qmd` file from this template must be manually added
-to the root of the project, if this template is added to to an existing project.
+This templates includes the `_macro_processing.qmd` file in the root directory.
+If this template is added to an existing project, this file must be manually
+added to the root of the project.
 :::
 
-A detailed
-reason and more information on this design decision can be found in
+Details about this design can be found in
 @sec-global-macro-details and also in this [GitHub
 discussion](https://github.com/quarto-dev/quarto-cli/discussions/12838).
 The Quarto developers may add a better mechanism in the future.
 
 
 
-## Aligned-Overset
+## Mathematical equations {#sec-usage-equations}
+
+To understand how Quarto deals with mathematical equations it
+is necessary to understand how equations are handled in `LaTeX`
+and `html` (i.e. the JavaScript libraries [`mathjax`][mathjax] or [`KaTeX`][katex]). Readers that understand equations in Quarto and their limitations
+may want to skip to @sec-aligned-overset where the `aligned-overset` feature
+is discussed that is special to this template.
+
+`LaTeX` is built on `TeX` which simply toggles between 'normal mode' and
+'math mode' using dollar signs e.g. `$e^{i\pi} + 1 = 0$` renders as:
+$e^{i\pi} + 1 = 0$. For display equations `TeX` allows for the use
+of double dollar signs, e.g.
+```LaTeX
+$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+```
+which is rendered like this
+$$
+	f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}.
+$$
+JavaScript libraries like [mathjax] or [katex] only implement math mode and
+generally scan for this dollar syntax in an `html` page to process it. However,
+at least mathjax can also be configured to work with the more advanced
+equation environments provided by LaTeX.
+
+### Equations in LaTeX
+
+However `LaTeX` built more sophisticated display equation
+environments on top of this simple toggle and it is therefore [not recommended](https://tex.stackexchange.com/questions/503/why-is-preferable-to) to
+use these primitive `TeX` macros for display equations in LaTeX.
+Instead of `$$ math $$` LaTeX authors are encouraged to use the syntax
+```LaTeX
+\begin{environment}
+	math
+\end{environment}
+```
+Here the word `environment` is replaced by one of the following:
+
+1. `equation` results in a numbered display equation, `equation*` in an 
+un-numbered display equation. 
+
+   ::: {.callout-note}
+   `\[...\]` is an alias for the `equation*`
+   environment.
+   :::
+   
+   In contrast to the primitive `TeX` syntax (`$$ ... $$`), `LaTeX` equations
+   adjusts the spacing of the equation depending on the length of the sentence
+   before and after the equation. If the line before the equation only contains
+   a single word, the equation is packed tighter since there is already a lot of
+   white space to the right of this word.
+1. `align` is a numbered display equation environment that allows the user to set alignment points with `&` letters. For example 
+
+	```LaTeX
+	\begin{align}
+		(a + b)^2
+		&= (a + b)(a + b) \\
+		&= a^2 + ab + ba + b^2 \\
+		&= a^2 + 2ab + b^2
+	\end{align}
+	```
+
+	which is roughly[^align-footnote] rendered as
+
+	\begin{align}
+		\tag{1}
+		(a + b)^2
+		&= (a + b)(a + b) \\
+		\tag{2}
+		&= a^2 + ab + ba + b^2 \\
+		\tag{3}
+		&= a^2 + 2ab + b^2
+	\end{align}
+
+	The `align*` environment is again the un-numbered pendant which results in
+	$$
+	\begin{aligned}
+	(a + b)^2 &= (a + b)(a + b) \\
+			&= a^2 + ab + ba + b^2 \\
+			&= a^2 + 2ab + b^2
+	\end{aligned}
+	$$
+
+3. `alignat` (or `alignat*`) works similar to `align` (or `align*`), but
+	allows for multiple alignment columns.
+
+	
+### Equations in Quarto {#sec-equations-quarto}
+
+Quarto essentially only allows the dollar sign syntax. However, the display equations
+using double dollar signs (`$$ ... $$`) are converted to LaTeX `equation` environments
+when targeting `pdf` via `LaTeX`. More specifically, un-annotated equations
+are converted to un-numbered `equation*` environments while a 'tagged equation'
+```qmd
+$$
+	f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$ {#eq-differentiation}
+```
+is converted into a numbered equation
+```
+\begin{equation}
+	\label{eq-differentiation}
+	f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\end{equation}
+```
+rendered in `html` as
+$$
+	f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$ {#eq-differentiation}
+
+The key `@eq-differentiation` can be used to produce a link (@eq-differentiation).
+
+Unfortunately Quarto does not support aligned equations using the `align` environment.
+However it is possible to use the `aligned` environment inside of math mode;
+similarly the `alignedat` environment can be used in math mode in place of `alignat`.
+
+To produce an aligned equation one can therefore use the syntax
+```qmd
+$$
+\begin{aligned}
+	(a + b)^2
+	&= (a + b)(a + b) \\
+	&= a^2 + ab + ba + b^2 \\
+	&= a^2 + 2ab + b^2
+\end{aligned}
+$$ {#eq-aligned-demo}
+```
+This renders as
+$$
+\begin{aligned}
+	(a + b)^2
+	&= (a + b)(a + b) \\
+	&= a^2 + ab + ba + b^2 \\
+	&= a^2 + 2ab + b^2
+\end{aligned} 
+$$ {#eq-aligned-demo}
+Observe that the 'Quarto-way' to tag equations only allows for one label per
+equation which is different from line-by-line numbering that LaTeX provides with
+the `align` environment. This is an unsolved [issue](https://github.com/quarto-dev/quarto-cli/issues/2275) at the moment.
+
+There are two possible **workarounds**. The [first workaround](#workaround-1) I strongly recommend against, under the assumption that:
+
+- You want to reference equations from different chapters.
+- You want to keep the equation preview on hover in `html`.
+
+I recommend the [second workaround](#workaround-2) if you are willing to duplicate the equation
+for the few cases you actually need to reference particular lines in
+aligned equations. This assumes that:
+
+- Aligned equations explain how to get from the first
+element to the last. Afterwards the steps in the middle can generally be
+forgotten. So in the vast majority of cases it is unnecessary to label
+individual lines.
+
+::: {#workaround-1 .callout-note title="Workaround 1: Ignore Quarto" collapse=true}
+
+Recall that `mathjax` *can* deal with LaTeX equation environments? Instead of the dollar
+syntax you can simply place naked `\begin{...} \end{...}` tags into your `.qmd` files.
+This will be correctly rendered by `mathjax` in `html` and will correctly be converted
+into `LaTeX`. But there are caveats.
+
+The first caveat can be fixed: `mathjax` does not treat `equation` differently
+from `equation*` by default and omits equation numbers altogether by default.
+This setting can be changed and `Mathjax` is already configured to behave like
+LaTeX in this template (this is not the default of Quarto).
+
+But since the `mathjax` equation numbering is independent of Quartos,
+the numbering is going to be incorrect if you use both.
+For this reason [some authors recommend never using the Quarto
+syntax](https://github.com/quarto-dev/quarto-cli/issues/2275#issuecomment-1399047519) and only relying on `mathjax` for equation numbering.
+To do so simply use the `\label{eq-name}` and `\ref{eq-name}`
+tags you may know from `LaTeX`.
+However,
+
+1. `mathjax` cannot see anything beyond the current `html` page. In particular it
+cannot see the equations in other chapters, which makes it impossible to
+reference equations from other chapters with this approach.
+2. The hover-over (e.g. @eq-aligned-demo) Quarto provides will be broken
+3. `mathjax` does not know the chapter it is in, so it cannot
+easily use the format `(1.3)` where `1` refers to the chapter and `3` means
+it is the third equation of this chapter. The [`tagformat`](https://docs.mathjax.org/en/latest/input/tex/extensions/tagformat.html) of mathjax
+can however be changed and this template implements a heuristic to find the
+correct chapter number (assumes there is only one top level heading per `.qmd`
+file).
+:::
+
+:::::: {#workaround-2 .callout-note title="Workaround 2: Case-by-case treatment" collapse=false}
+
+Typically, you do not need to reference individual lines in an equation. 
+The following workaround works well if you only need this in a handful of places
+and only reference these individual equations within the same chapter.
+It works by duplicating the equation and providing a version for the `html`
+target separately for a version for the `pdf` (i.e. `LaTeX` target).
+It looks like this:
+
+::: {.content-visible when-format="html"}
+$$
+	\begin{align}
+		a &= b \tag{a}\\
+		&=c \tag{b}
+	\end{align}
+$$ {#eq-test}
+:::
+::: {.content-visible when-format="pdf"}
+\begin{align}
+	a &= b \label{eq-a}\\
+	&=c \label{eq-b}
+\end{align}
+:::
+
+`<` Text before you want to reference the equation.`>`
+Equation reference:
+[@eq-test (a)]{.content-visible when-format="html"}
+[Equation \ref{eq-a}]{.content-visible when-format="pdf"}
+
+This is achieved using the following code that introduces a case-by-case treatment of the output
+
+```qmd
+::: {.content-visible when-format="html"}
+$$
+	\begin{align}
+		a &= b \tag{a}\\
+		&=c \tag{b}
+	\end{align}
+$$ {#eq-test}
+:::
+::: {.content-visible when-format="pdf"}
+	\begin{align}
+		a &= b \label{eq-a}\\
+		&=c \label{eq-b}
+	\end{align}
+:::
+
+`<` Text before you want to reference the equation. `>`
+Equation reference:
+[@eq-test (a)]{.content-visible when-format="html"}
+[Equation \ref{eq-a}]{.content-visible when-format="pdf"}
+```
+
+Note that `\begin{align}` is invalid syntax inside the math environment for `LaTeX` but it is accepted by `mathjax`. This allows double tags for the `html`
+target. In `LaTeX` you cannot have these duplicate tags, but you can use the
+fact that Quarto converts equation references into the `LaTeX` reference
+system and `LaTeX` will then take all labels into consideration and the
+numbering simply works. Check both outputs!
+::::::
+
+### Aligned-Overset {#sec-aligned-overset}
+
+
+
+## Publishing the book as a website
+
 
 
 [install quarto]: https://quarto.org/docs/get-started/
 [texlive]: https://www.tug.org/texlive/
 [R]: https://cran.r-project.org/mirrors.html
 [quarto documentation]: https://quarto.org/docs/guide/
+[mathjax]: https://www.mathjax.org/
+[katex]: https://katex.org/
 
 [^why-r]: required for the global macro feature @sec-global-macros
+[^align-footnote]: due to the issues with equation numbering in quarto explained in
+@sec-equations-quarto every line was manually tagged using `\tag` here instead
+of automatically numbered.

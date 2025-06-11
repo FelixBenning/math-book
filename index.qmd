@@ -26,13 +26,8 @@ for example:
 $$
 	\nat \subset \integer \subset \rational \subset \real \subset \complex
 $$ {#eq-number-hierarchy}
-However, Mathjax is not LaTeX and only provides a subset of its features. This
-leads to certain issues that need to be addressed (details in @sec-mathjax).
 
-## Equations in Mathjax {#sec-mathjax}
-
-
-## Multiple Choice
+## H5P integration demo 
 
 H5P's default multiple choice example ([source](https://h5p.org/multichoice)).
 
