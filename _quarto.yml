@@ -25,7 +25,7 @@ format:
       - brand # use a _brand.yml file to customize (https://posit-dev.github.io/brand-yml/)
   math-book-pdf:
     keep-tex: false # set to true to obtain tex files
-    pdf-engine: xelatex # alternatives: pdflatex (old, most common) or lualatex
+    pdf-engine: pdflatex # xelatex # alternatives: pdflatex (old, most common) or lualatex
 
 editor:
   render-on-save: true

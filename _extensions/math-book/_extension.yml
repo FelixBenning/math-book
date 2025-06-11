@@ -26,5 +26,10 @@ contributes:
     
     pdf:
       documentclass: book
+      classoption: oneside
+      papersize: a4paper
+      code-block-bg: "#f8f8f8"
+      mathfont: NewCMMath-Book.otf
+      colorlinks: true
       template-partials:
       - before-title.tex

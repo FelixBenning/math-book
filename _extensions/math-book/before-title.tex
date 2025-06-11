@@ -2,19 +2,6 @@
 
 \usepackage{mathtools}
 \usepackage{aligned-overset}
-\ifPDFTeX
-\else
-	% set math font to "New Computer Modern Book"
-	% this "fixes" the mathbb letters ℝ 
-	\setmathfont{NewCMMath-Book.otf}
-
-	%% Explanation:
-	% PDFLaTeX does not use the "Latin Modern" font consistently:
-	% The mathbb letters are not taken from the Latin Modern font, but
-	% rather from the amsmath package. 
-	% LuaLaTeX and XeLaTex use Latin Modern consistently,
-	% but its mathbb letters look ugly. -> solution: change font
-\fi
 
 
 
