@@ -288,13 +288,10 @@ J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https
 <script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
 <script type="text/javascript">
   // support deployment in subdirectories of domains
-  const site_url = "https://unassuming.page/math-book";
-  console.log(`site_url: ${site_url}`)
-  console.log(`location.origin: ${location.origin}`)
-  const isProd = location.origin.includes(site_url);
-  console.log(`isProd: ${isProd}`)
-  var base = isProd ? new URL(site_url).pathname : "";
+  var base = new URL("https://unassuming.page/math-book").pathname;
   if (!base.endsWith("/")) base += "/";
+  if (!location.pathname.includes(base)) base = "/"; // local preview
+  console.log(`base: ${base}`)
   // //
   const h5p_els = document.getElementsByClassName("h5p");
   for(const el of h5p_els){
