@@ -1,5 +1,5 @@
 assets/h5p-standalone
-assets/utils/h5p-collector.html
+assets/utils/h5p-collector.qmd
 assets/utils/mathjax.html
 /.quarto/
 _book

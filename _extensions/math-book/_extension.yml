@@ -22,7 +22,7 @@ contributes:
       include-in-header:
       - assets/utils/mathjax.html 
       include-after-body:
-      - assets/utils/h5p-collector.html
+      - assets/utils/h5p-collector.qmd
     
     pdf:
       documentclass: book
