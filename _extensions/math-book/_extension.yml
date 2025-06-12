@@ -19,6 +19,7 @@ contributes:
       footnotes-hover: true
       format-resources:
         - assets
+        - "!assets/utils"
       include-in-header:
       - assets/utils/mathjax.html 
       include-after-body:
