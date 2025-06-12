@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./details.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./usage.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -42,6 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -206,19 +208,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./extensions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Useful extensions</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./details.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Details</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -263,6 +259,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong><a href="https://github.com/quarto-ext/latex-environment">Latex Environment</a></strong> wraps quarto divs into a LaTeX environment of your choosing.</li>
 <li><strong><a href="https://github.com/danmackinlay/quarto_tikz">Quarto TikZ</a></strong> A filter that renders PGF/TikZ diagrams in HTML as SVG.</li>
 <li><strong><a href="https://github.com/jmgirard/honeypot">honeypot</a></strong> Add hidden instructions to HTML homework assignments to help detect cheating by unauthorized LLM usage.</li>
+<li><strong><a href="https://github.com/quarto-ext/fontawesome">Font awesome Extension</a></strong> This extension provides support including free icons (e.g.&nbsp;<i class="fa-solid fa-thumbs-up" aria-label="thumbs-up"></i>) provided by <a href="https://fontawesome.com/">Font Awesome</a>.</li>
 </ol>
 
 
@@ -270,17 +267,11 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
 <script type="text/javascript">
-  // support deployment in subdirectories of domains
-  // var base = new URL("https://unassuming.page/math-book").pathname;
-  // if (!base.endsWith("/")) base += "/";
-  // if (!location.pathname.includes(base)) base = "/"; // local preview
-  // console.log(`base: ${base}`)
-  // //
   const h5p_els = document.getElementsByClassName("h5p");
   for(const el of h5p_els){
     const h5p_id = el.id
     const options = {
-    h5pJsonPath: `./assets/h5p-content/${h5p_id}`,
+    h5pJsonPath: `./assets/h5p-content/${h5p_id}`, // the ./ is important: https://github.com/tunapanda/h5p-standalone/issues/176
     frameJs: 'assets/h5p-standalone/frame.bundle.js',
     frameCss: 'assets/h5p-standalone/styles/h5p.css',
     }
@@ -688,13 +679,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./usage.html" class="pagination-link" aria-label="Usage guide">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span>
+      <a href="./usage.html" class="pagination-link" aria-label="User guide">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./details.html" class="pagination-link" aria-label="Details">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Details</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

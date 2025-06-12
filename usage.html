@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Usage guide – Math Book Template</title>
+<title>1&nbsp; User guide – Math Book Template</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -234,7 +234,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./usage.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./usage.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -272,19 +272,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./usage.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Useful extensions</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./details.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Details</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -310,7 +304,7 @@ window.Quarto = {
   <li><a href="#equations-in-latex" id="toc-equations-in-latex" class="nav-link" data-scroll-target="#equations-in-latex"><span class="header-section-number">1.3.1</span> Equations in LaTeX</a></li>
   <li><a href="#sec-equations-quarto" id="toc-sec-equations-quarto" class="nav-link" data-scroll-target="#sec-equations-quarto"><span class="header-section-number">1.3.2</span> Equations in Quarto</a></li>
   <li><a href="#sec-aligned-overset" id="toc-sec-aligned-overset" class="nav-link" data-scroll-target="#sec-aligned-overset"><span class="header-section-number">1.3.3</span> Aligned-Overset</a></li>
-  <li><a href="#theorem-environments" id="toc-theorem-environments" class="nav-link" data-scroll-target="#theorem-environments"><span class="header-section-number">1.3.4</span> Theorem environments</a></li>
+  <li><a href="#sec-theorems" id="toc-sec-theorems" class="nav-link" data-scroll-target="#sec-theorems"><span class="header-section-number">1.3.4</span> Theorem environments</a></li>
   </ul></li>
   <li><a href="#publishing-the-book-as-a-website" id="toc-publishing-the-book-as-a-website" class="nav-link" data-scroll-target="#publishing-the-book-as-a-website"><span class="header-section-number">1.4</span> Publishing the book as a website</a></li>
   </ul>
@@ -321,7 +315,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-usage-guide" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span></h1>
+<h1 class="title"><span id="sec-usage-guide" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></span></h1>
 </div>
 
 
@@ -345,7 +339,7 @@ pandoc to process the \newcommands
 https://github.com/quarto-dev/quarto-cli/discussions/12838#discussioncomment-13378945
 -->
 <ol type="1">
-<li><p>Install <a href="https://quarto.org/docs/get-started/">Quarto</a>, <a href="https://www.tug.org/texlive/">LaTeX</a> and <a href="https://cran.r-project.org/mirrors.html">R</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p></li>
+<li><p>Install <a href="https://quarto.org/docs/get-started/">Quarto</a>, <a href="https://www.tug.org/texlive/">LaTeX</a> and <a href="https://cran.r-project.org/mirrors.html">R</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>; and choose an editor (e.g.&nbsp;<a href="https://code.visualstudio.com/download">VSCode</a>)</p></li>
 <li><p>To use this template type the following into a terminal</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template FelixBenning/math-book</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled" title="Add to existing project">
@@ -408,19 +402,6 @@ Possible issue: Missing libraries
 <p>To make it work, simply copy these libraries from an older <code>h5p</code> file into this folder (e.g.&nbsp;from the <a href="https://github.com/FelixBenning/math-book/tree/main/assets/h5p-content/multiple-choice"><code>multiple-choice</code> example</a> of this template)</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled" title="Possible issue: 404 files not found">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Possible issue: 404 files not found
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If your book is in the GitHub repository <code>my-repo</code> and published with GitHub Pages, then the base url is something like <code>https://username.github.io/my-repo/</code> (if you did not configure a <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">custom domain</a>). Locally the base repository is <code>localhost</code> however. To ensure H5P works when deployed <em>and</em> when testing locally, the code in <code>h5p-collector.qmd</code> uses a heuristic based on the <code>book.site-url</code> configuration in the <code>_quarto.yml</code> file to find the h5p files. So make sure this configuration is set correctly!</p>
-</div>
-</div>
 </section>
 <section id="sec-global-macros" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sec-global-macros"><span class="header-section-number">1.2</span> Global LaTeX Macros</h2>
@@ -429,7 +410,7 @@ Possible issue: 404 files not found
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\complex</span>}{<span class="fu">\mathbb</span>{C}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>can be used to produce <span class="math inline">\(\mathbb{R}\subset \mathbb{C}\)</span> from <code>\real \subset \complex</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="What is the benefit of macros?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -438,7 +419,7 @@ What is the benefit of macros?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The notation for the natural numbers <span class="math inline">\(\mathbb{N}= \{1,2,3,\dots\}\)</span> requires “Blackboard letters” for example. Those can be achieved using the command <code>\mathbb</code> – specifically <code>\mathbb{N}</code>. A custom macro may be defined as follows in LaTeX</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\nat</span>}{<span class="fu">\mathbb</span>{N}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -466,7 +447,7 @@ Important
 <p>This templates includes the <code>_macro_processing.qmd</code> file in the root directory. If this template is added to an existing project, this file must be manually added to the root of the project.</p>
 </div>
 </div>
-<p>Details about this design can be found in <a href="details.html#sec-global-macro-details" class="quarto-xref"><span>Section 3.1</span></a> and also in this <a href="https://github.com/quarto-dev/quarto-cli/discussions/12838">GitHub discussion</a>. The Quarto developers may add a better mechanism in the future.</p>
+<p>Details about this design can be found in in this <a href="https://github.com/quarto-dev/quarto-cli/discussions/12838">GitHub discussion</a>. The Quarto developers may add a better mechanism in the future.</p>
 </section>
 <section id="sec-usage-equations" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="sec-usage-equations"><span class="header-section-number">1.3</span> Mathematical equations</h2>
@@ -478,7 +459,7 @@ Important
 \]</span> JavaScript libraries like <a href="https://www.mathjax.org/">mathjax</a> or <a href="https://katex.org/">katex</a> only implement math mode and generally scan for this dollar syntax in an <code>html</code> page to process it. However, at least mathjax can also be configured to work with the more advanced equation environments provided by LaTeX.</p>
 <section id="equations-in-latex" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="equations-in-latex"><span class="header-section-number">1.3.1</span> Equations in LaTeX</h3>
-<p>However <code>LaTeX</code> built more sophisticated display equation environments on top of this simple toggle and it is therefore <a href="https://tex.stackexchange.com/questions/503/why-is-preferable-to">not recommended</a> to use these primitive <code>TeX</code> macros for display equations in LaTeX. Instead of <code>$$ math $$</code> LaTeX authors are encouraged to use the syntax</p>
+<p><code>LaTeX</code> built more sophisticated display equation environments on top of this simple toggle and it is therefore <a href="https://tex.stackexchange.com/questions/503/why-is-preferable-to">not recommended</a> to use these primitive <code>TeX</code> macros for display equations in LaTeX. Instead of <code>$$ math $$</code> LaTeX authors are encouraged to use the syntax</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">environment</span>}</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    math</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">environment</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -569,7 +550,7 @@ $$ {#eq-aligned-demo}</code></pre>
 <li>Aligned equations explain how to get from the first element to the last. Afterwards the steps in the middle can generally be forgotten. So in the vast majority of cases it is unnecessary to label individual lines.</li>
 </ul>
 <div id="workaround-1" class="callout callout-style-default callout-note callout-titled" title="Workaround 1: Ignore Quarto">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -578,7 +559,7 @@ Workaround 1: Ignore Quarto
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Recall that <code>mathjax</code> <em>can</em> deal with LaTeX equation environments? Instead of the dollar syntax you can simply place naked <code>\begin{...} \end{...}</code> tags into your <code>.qmd</code> files. This will be correctly rendered by <code>mathjax</code> in <code>html</code> and will correctly be converted into <code>LaTeX</code>. But there are caveats.</p>
 <p>The first caveat can be fixed: <code>mathjax</code> does not treat <code>equation</code> differently from <code>equation*</code> by default and omits equation numbers altogether by default. This setting can be changed and <code>Mathjax</code> is already configured to behave like LaTeX in this template (this is not the default of Quarto).</p>
@@ -592,7 +573,7 @@ Workaround 1: Ignore Quarto
 </div>
 </div>
 <div id="workaround-2" class="callout callout-style-default callout-note callout-titled" title="Workaround 2: Case-by-case treatment">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -601,7 +582,7 @@ Workaround 2: Case-by-case treatment
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Typically, you do not need to reference individual lines in an equation. The following workaround works well if you only need this in a handful of places and only reference these individual equations within the same chapter. It works by duplicating the equation and providing a version for the <code>html</code> target separately for a version for the <code>pdf</code> (i.e.&nbsp;<code>LaTeX</code> target). It looks like this:</p>
 <p><span id="eq-test"><span class="math display">\[
@@ -667,13 +648,13 @@ Equation reference:
     &amp;= z.
 \end{aligned}\]</span> Nevertheless for all equations, except for the first, this is a good solution and works out of the box with this template.</p>
 </section>
-<section id="theorem-environments" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="theorem-environments"><span class="header-section-number">1.3.4</span> Theorem environments</h3>
+<section id="sec-theorems" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="sec-theorems"><span class="header-section-number">1.3.4</span> Theorem environments</h3>
 <div id="thm-demo" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1.1 (Demo Theorem)</strong></span> Quarto provides certain theorem environments out of the box (see <a href="https://quarto.org/docs/authoring/cross-references.html#theorems-and-proofs">documentation</a>)</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (proof name). </span>Usage</p>
+<p><span class="proof-title"><em>Proof</em> (Proof name). </span>Usage</p>
 <pre class="qmd"><code>::: {#thm-demo name="Demo Theorem"}
 content
 :::
@@ -707,17 +688,11 @@ content
 </main> <!-- /main -->
 <script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
 <script type="text/javascript">
-  // support deployment in subdirectories of domains
-  // var base = new URL("https://unassuming.page/math-book").pathname;
-  // if (!base.endsWith("/")) base += "/";
-  // if (!location.pathname.includes(base)) base = "/"; // local preview
-  // console.log(`base: ${base}`)
-  // //
   const h5p_els = document.getElementsByClassName("h5p");
   for(const el of h5p_els){
     const h5p_id = el.id
     const options = {
-    h5pJsonPath: `./assets/h5p-content/${h5p_id}`,
+    h5pJsonPath: `./assets/h5p-content/${h5p_id}`, // the ./ is important: https://github.com/tunapanda/h5p-standalone/issues/176
     frameJs: 'assets/h5p-standalone/frame.bundle.js',
     frameCss: 'assets/h5p-standalone/styles/h5p.css',
     }

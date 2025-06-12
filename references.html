@@ -49,7 +49,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./details.html" rel="prev">
+<link href="./extensions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -224,19 +224,13 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Useful extensions</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./details.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Details</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -287,17 +281,11 @@ J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https
 </main> <!-- /main -->
 <script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
 <script type="text/javascript">
-  // support deployment in subdirectories of domains
-  // var base = new URL("https://unassuming.page/math-book").pathname;
-  // if (!base.endsWith("/")) base += "/";
-  // if (!location.pathname.includes(base)) base = "/"; // local preview
-  // console.log(`base: ${base}`)
-  // //
   const h5p_els = document.getElementsByClassName("h5p");
   for(const el of h5p_els){
     const h5p_id = el.id
     const options = {
-    h5pJsonPath: `./assets/h5p-content/${h5p_id}`,
+    h5pJsonPath: `./assets/h5p-content/${h5p_id}`, // the ./ is important: https://github.com/tunapanda/h5p-standalone/issues/176
     frameJs: 'assets/h5p-standalone/frame.bundle.js',
     frameCss: 'assets/h5p-standalone/styles/h5p.css',
     }
@@ -705,8 +693,8 @@ J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./details.html" class="pagination-link" aria-label="Details">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Details</span></span>
+      <a href="./extensions.html" class="pagination-link" aria-label="Useful extensions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Useful extensions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

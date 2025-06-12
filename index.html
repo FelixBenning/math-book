@@ -256,19 +256,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./usage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Useful extensions</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./details.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Details</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -289,7 +283,12 @@ window.Quarto = {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
+  <li><a href="#the-goood" id="toc-the-goood" class="nav-link" data-scroll-target="#the-goood">The Goood</a>
+  <ul class="collapse">
   <li><a href="#h5p-integration-demo" id="toc-h5p-integration-demo" class="nav-link" data-scroll-target="#h5p-integration-demo">H5P integration demo</a></li>
+  </ul></li>
+  <li><a href="#the-bad" id="toc-the-bad" class="nav-link" data-scroll-target="#the-bad">The Bad</a></li>
+  <li><a href="#the-ugly" id="toc-the-ugly" class="nav-link" data-scroll-target="#the-ugly">The Ugly</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/FelixBenning/math-book/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FelixBenning/math-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/FelixBenning/math-book/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -338,20 +337,51 @@ https://github.com/quarto-dev/quarto-cli/discussions/12838#discussioncomment-133
 <h1 class="unnumbered">Overview</h1>
 <p>This is a template for a <a href="https://quarto.org">Quarto</a> math book or lecture script. <a href="https://quarto.org">Quarto</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is a framework to render Markdown documents into <code>html</code> and via LaTeX into <code>pdf</code>. The reason you may want to target <code>html</code> is immediately illustrated if you read the web version of this documentation. For example, try to hover over the footnote on “Quarto”, or over the following equation reference <a href="#eq-number-hierarchy" class="quarto-xref">Equation&nbsp;<span>1</span></a>.</p>
 <p>This interactivity is something that is impossible with <code>pdf</code>. And since LaTeX can only really target <code>pdf</code> this is a problem. However LaTeX is really good at equations and other academic features that make it difficult to replace. <a href="https://quarto.org">Quarto</a> provides these features.</p>
+<section id="the-goood" class="level2">
+<h2 class="anchored" data-anchor-id="the-goood">The Goood</h2>
+<p>Quarto has</p>
 <ol type="1">
-<li>It has <a href="https://quarto.org/docs/authoring/citations.html">bibliographic reference management</a> that can generate citations e.g. <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> based on the cite keys in bibtex <code>.bibtex</code> and biblatex <code>.bib</code> files. Try to hover over the citation!</li>
+<li><a href="https://quarto.org/docs/authoring/citations.html">bibliographic reference management</a> that can generate citations e.g. <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> based on the cite keys in bibtex <code>.bibtex</code> and biblatex <code>.bib</code> files. Try to hover over the citation!</li>
+<li>It has machinery to produce <a href="https://quarto.org/docs/authoring/cross-references.html#theorems-and-proofs">theorems</a></li>
 <li>It has machinery to <a href="https://quarto.org/docs/authoring/cross-references.html">cross-reference</a> figures, tables, sections, theorems, etc.</li>
 <li>And most importantly for maths, it is integrated with the <a href="https://www.mathjax.org/">mathjax</a> JavaScript library that can render LaTeX equations on websites, like this one for example: <span id="eq-number-hierarchy"><span class="math display">\[
 \mathbb{N}\subset \mathbb{Z}\subset \mathbb{Q}\subset \mathbb{R}\subset \mathbb{C}
 \tag{1}\]</span></span></li>
 </ol>
-<section id="h5p-integration-demo" class="level2">
-<h2 class="anchored" data-anchor-id="h5p-integration-demo">H5P integration demo</h2>
-<p>H5P’s default multiple choice example (<a href="https://h5p.org/multichoice">source</a>).</p>
+<section id="h5p-integration-demo" class="level3">
+<h3 class="anchored" data-anchor-id="h5p-integration-demo">H5P integration demo</h3>
+<p>Since Quarto can target <code>html</code> it is easy to integrate H5P elements. E.g.&nbsp;here is H5P’s default multiple choice example (<a href="https://h5p.org/multichoice">source</a>).</p>
 <div id="multiple-choice" class="h5p">
 
 </div>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+</section>
+</section>
+<section id="the-bad" class="level2">
+<h2 class="anchored" data-anchor-id="the-bad">The Bad</h2>
+<ul>
+<li><p><strong>Global LaTeX Macros</strong> do not work well out of the box. However this problem is fixable (see <a href="usage.html#sec-global-macros" class="quarto-xref"><span>Global LaTeX Macros</span></a> and this <a href="https://github.com/quarto-dev/quarto-cli/discussions/12838">GitHub Discussion</a>)</p></li>
+<li><p><strong>The reference system</strong></p>
+<ul>
+<li><p>It is impossible, or at least very difficult, to <strong>reference individual lines</strong> of aligned equations (see <a href="usage.html#sec-equations-quarto" class="quarto-xref"><span>Equations in Quarto</span></a>)</p></li>
+<li><p>It is not possible to use <strong>shared counters</strong> for theorems and lemmas as in LaTeX (see <a href="usage.html#sec-theorems" class="quarto-xref"><span>Theorem environments</span></a>).</p>
+<p>This makes it more difficult to find a theorem manually, because the numbers on the lemmas do not tell you whether to look before or after. Digitally however this is less relevant since you do not have to manually search. And it is most likely possible to fix this for <code>LaTeX</code> with templates, so this could be “fixed” for the print version.</p></li>
+</ul></li>
+<li><p><strong>Sync to Code</strong> <a href="https://github.com/jlaurens/synctex">SyncTeX</a> is an amazing tool stores crossreference data in a file. The <a href="https://github.com/James-Yu/LaTeX-Workshop/wiki/View#synctex">LaTeX Workshop extension</a> for VSCode uses this file to allow users to <code>Cmd</code> + Click on text in the pdf to be directed to the LaTeX code that produced this text. Similarly it is possible to jump from code to the corresponding place in the pdf. Synctex is similarly integrated with other editors. This is something that does not really exist for Quarto. To my knowledge this does not even exist for <code>html</code> preview in VSCode so this may be very difficult to implement. However there exists a partial WYSIWYG<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> editor for quarto as part of the VSCode extension (right click: “Edit in Visual Mode”). The downside of this mode is that</p>
+<ol type="1">
+<li>it does not preserve existing code</li>
+<li>it does not render Global Macros (<a href="usage.html#sec-global-macros" class="quarto-xref"><span>Global LaTeX Macros</span></a>) correctly</li>
+<li>it is incompatible with the <a href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">Vim</a> extension of VSCode.</li>
+</ol></li>
+</ul>
+</section>
+<section id="the-ugly" class="level2">
+<h2 class="anchored" data-anchor-id="the-ugly">The Ugly</h2>
+<p>Since Quarto can target <code>html</code> it may eventually be possible to make proofs collapsible although at the moment this is not possible out of the box. <a href="https://github.com/sun123zxy/quarto-callouty-theorem">Callouty Theorems</a> is an extension to make this happen. But the way it does it is ugly:</p>
+<ol type="1">
+<li>It wraps theorems and proofs into callout blocks that are visually too prominent, especially for proofs.</li>
+<li>Since it is only a wrapper, the hover-overs only reference the inner part</li>
+<li>and the theorem has two titles, the normal title and the title of the wrapper</li>
+</ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -365,23 +395,18 @@ Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</
 <hr>
 <ol>
 <li id="fn1"><p><a href="https://quarto.org">Quarto</a> is a language agnostic the successor to <a href="https://rmarkdown.rstudio.com/">R Markdown</a>, both of which are built on the universal document converter <a href="https://pandoc.org/">Pandoc</a>. <a href="https://rmarkdown.rstudio.com/">R Markdown</a> allowed for R code snippets to be included in a markdown document which were executed before display. <a href="https://quarto.org">Quarto</a> also allows this for Python and JavaScript.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>What you see is what you get<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
 </main> <!-- /main -->
 <script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
 <script type="text/javascript">
-  // support deployment in subdirectories of domains
-  // var base = new URL("https://unassuming.page/math-book").pathname;
-  // if (!base.endsWith("/")) base += "/";
-  // if (!location.pathname.includes(base)) base = "/"; // local preview
-  // console.log(`base: ${base}`)
-  // //
   const h5p_els = document.getElementsByClassName("h5p");
   for(const el of h5p_els){
     const h5p_id = el.id
     const options = {
-    h5pJsonPath: `./assets/h5p-content/${h5p_id}`,
+    h5pJsonPath: `./assets/h5p-content/${h5p_id}`, // the ./ is important: https://github.com/tunapanda/h5p-standalone/issues/176
     frameJs: 'assets/h5p-standalone/frame.bundle.js',
     frameCss: 'assets/h5p-standalone/styles/h5p.css',
     }
@@ -791,8 +816,8 @@ Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./usage.html" class="pagination-link" aria-label="Usage guide">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Usage guide</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./usage.html" class="pagination-link" aria-label="User guide">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">User guide</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
