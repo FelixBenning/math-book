@@ -1,6 +1,4 @@
 assets/h5p-standalone
-assets/utils/h5p-collector.qmd
-assets/utils/mathjax.html
 /.quarto/
 _book
 .DS_Store

@@ -1,0 +1,4 @@
+_book
+.quarto
+assets/h5p-standalone
+.DS_Store
