@@ -2,21 +2,21 @@
 
 # Usage guide {#sec-usage-guide}
 
-First, install [Quarto][install quarto], [LaTeX][texlive] and
-[R][^why-r] . To use
-this template type the following into a terminal
+1. Install [Quarto][install quarto], [LaTeX][texlive] and [R][^why-r].
+2. To use this template type the following into a terminal
 
-```sh
-quarto use template FelixBenning/math-book
-```
+   ```sh
+   quarto use template FelixBenning/math-book
+   ```
 
-::: {.callout-note collapse="true" title="Add to existing project"}
+   ::: {.callout-note collapse="true" title="Add to existing project"}
 
-You can also use `quarto add FelixBenning/math-book` to add this template to an
-existing quarto project. However to use the global macros feature, which allows a
-`macros.tex` file defining macros to be used in LaTeX equation, you need to
-manually copy the file `_macro_processing.yml` into your root directory.
-:::
+   You can also use `quarto add FelixBenning/math-book` to add this template to an
+   existing quarto project. However to use the global macros feature (@sec-global-macros) you need to manually copy the file
+   `_macro_processing.yml` into your root directory.
+   :::
+
+3. Update the configuration in the file `_quarto.yml` marked with a `TODO` (e.g. `title`, `author`, `site-url`, etc.)
 
 For the standard features refer to [Quarto's documentation][quarto documentation]
 we will focus on the features specific or at least important to this template.
@@ -60,13 +60,24 @@ H5P server. H5P files (with the `.h5p` file extension may be added as follows):
 	<div id="my-h5p-folder" class="h5p"></div>
 	```
 
-::: {.callout-warning title="Possible issue: Missing Libraries"}
+::: {.callout-warning title="Possible issue: Missing libraries"}
 Historically, every H5P file with the extension `.h5p` used to include the H5P
 libraries necessary to make the content work. More recently, these libraries
 are not always included (see this [GitHub issue](https://github.com/tunapanda/h5p-standalone/issues/149#issuecomment-2713134238)). In this case the `my-h5p-folder` does not include
 folders of the form `H5P.AdvancedText`, `H5P.Audio`, `H5P.Blanks`, etc. But without these libraries the content does not work.
 
 To make it work, simply copy these libraries from an older `h5p` file into this folder (e.g. from the [`multiple-choice` example](https://github.com/FelixBenning/math-book/tree/main/assets/h5p-content/multiple-choice) of this template)
+:::
+
+::: {.callout-warning title="Possible issue: 404 files not found"}
+If your book is in the GitHub repository `my-repo` and published
+with GitHub Pages, then the base url is something like
+`https://username.github.io/my-repo/` (if you did not configure a [custom
+domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
+Locally the base repository is `localhost` however. To ensure H5P works when deployed *and*
+when testing locally, the code in `h5p-collector.qmd` uses a heuristic based on
+the `book.site-url` configuration in the `_quarto.yml` file to find
+the h5p files. So make sure this configuration is set correctly!
 :::
 
 ## Global LaTeX Macros {#sec-global-macros}
