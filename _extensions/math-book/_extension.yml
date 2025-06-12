@@ -19,11 +19,10 @@ contributes:
       footnotes-hover: true
       format-resources:
         - assets
-        - "!assets/utils"
       include-in-header:
-      - assets/utils/mathjax.html 
+      - utils/mathjax.html 
       include-after-body:
-      - assets/utils/h5p-collector.qmd
+      - utils/h5p-collector.qmd
     
     pdf:
       documentclass: book
