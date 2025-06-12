@@ -13,7 +13,6 @@ book:
     - index.qmd
     - usage.qmd
     - extensions.qmd
-    - details.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -26,7 +25,7 @@ format:
   math-book-pdf:
     keep-tex: false # set to true to obtain tex files
     cite-method: biblatex # or natbib
-    pdf-engine: pdflatex # xelatex # alternatives: pdflatex (old, most common) or lualatex
+    pdf-engine: xelatex # alternatives: pdflatex (old, most common) or lualatex
 
 editor:
   render-on-save: true

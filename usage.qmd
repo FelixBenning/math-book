@@ -1,6 +1,6 @@
 {{< include _macro_processing.qmd >}}
 
-# Usage guide {#sec-usage-guide}
+# User guide {#sec-usage-guide}
 
 1. Install [Quarto][install quarto], [LaTeX][texlive] and [R][^why-r]; and
    choose an editor (e.g. [VSCode](https://code.visualstudio.com/download))
@@ -120,10 +120,9 @@ If this template is added to an existing project, this file must be manually
 added to the root of the project.
 :::
 
-Details about this design can be found in
-@sec-global-macro-details and also in this [GitHub
-discussion](https://github.com/quarto-dev/quarto-cli/discussions/12838).
-The Quarto developers may add a better mechanism in the future.
+Details about this design can be found in in this [GitHub
+discussion](https://github.com/quarto-dev/quarto-cli/discussions/12838). The
+Quarto developers may add a better mechanism in the future.
 
 
 
@@ -434,7 +433,7 @@ works out of the box with this template.
 Quarto provides certain theorem environments
 out of the box (see [documentation](https://quarto.org/docs/authoring/cross-references.html#theorems-and-proofs))
 :::
-::: {.proof name="proof name"}
+::: {.proof name="Proof name"}
 
 Usage
 
