@@ -2,7 +2,8 @@
 
 # Usage guide {#sec-usage-guide}
 
-1. Install [Quarto][install quarto], [LaTeX][texlive] and [R][^why-r].
+1. Install [Quarto][install quarto], [LaTeX][texlive] and [R][^why-r]; and
+   choose an editor (e.g. [VSCode](https://code.visualstudio.com/download))
 2. To use this template type the following into a terminal
 
    ```sh
@@ -152,7 +153,7 @@ equation environments provided by LaTeX.
 
 ### Equations in LaTeX
 
-However `LaTeX` built more sophisticated display equation
+`LaTeX` built more sophisticated display equation
 environments on top of this simple toggle and it is therefore [not recommended](https://tex.stackexchange.com/questions/503/why-is-preferable-to) to
 use these primitive `TeX` macros for display equations in LaTeX.
 Instead of `$$ math $$` LaTeX authors are encouraged to use the syntax
@@ -427,7 +428,7 @@ $$\begin{aligned}
 Nevertheless for all equations, except for the first, this is a good solution and
 works out of the box with this template.
 
-### Theorem environments
+### Theorem environments {#sec-theorems}
 
 ::: {#thm-demo name="Demo Theorem"}
 Quarto provides certain theorem environments

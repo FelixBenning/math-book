@@ -7,9 +7,12 @@ You may find the following quarto extensions useful
 choosing.
 3. **[Quarto TikZ]** A filter that renders PGF/TikZ diagrams in HTML as SVG. 
 4. **[honeypot]** Add hidden instructions to HTML homework assignments to help detect cheating by unauthorized LLM usage. 
+5. **[Font awesome Extension]** This extension provides support including free
+icons (e.g. {{< fa thumbs-up >}}) provided by [Font Awesome](https://fontawesome.com/).
 
 
 [callouty theorems]: https://github.com/sun123zxy/quarto-callouty-theorem
 [Latex environment]: https://github.com/quarto-ext/latex-environment
 [quarto tikz]: https://github.com/danmackinlay/quarto_tikz
 [honeypot]: https://github.com/jmgirard/honeypot
+[font awesome extension]: https://github.com/quarto-ext/fontawesome

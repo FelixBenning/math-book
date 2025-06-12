@@ -14,10 +14,15 @@ can only really target `pdf` this is a problem.
 However LaTeX is really good at equations and
 other academic features that make it difficult to replace. [Quarto] provides these features.
 
-1. It has [bibliographic reference
+## The Goood
+
+Quarto has
+
+1. [bibliographic reference
 management](https://quarto.org/docs/authoring/citations.html) that can generate
 citations e.g. @knuth84 based on the cite keys in bibtex `.bibtex` and biblatex
 `.bib` files. Try to hover over the citation!
+2. It has machinery to produce [theorems](https://quarto.org/docs/authoring/cross-references.html#theorems-and-proofs)
 2. It has machinery to
 [cross-reference](https://quarto.org/docs/authoring/cross-references.html)
 figures, tables, sections, theorems, etc.
@@ -27,15 +32,70 @@ $$
 	\nat \subset \integer \subset \rational \subset \real \subset \complex
 $$ {#eq-number-hierarchy}
 
-## H5P integration demo 
 
-H5P's default multiple choice example ([source](https://h5p.org/multichoice)).
+### H5P integration demo 
 
+::: {.content-visible when-format="pdf"}
+> In the `html` version a H5P Demo is displayed here.
+:::
+
+:::: {.content-visible when-format="html"}
+
+Since Quarto can target `html` it is easy to integrate H5P elements.  E.g.\ here
+is H5P's default multiple choice example
+([source](https://h5p.org/multichoice)).
 
 ::: {#multiple-choice .h5p}
 :::
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+::::
+
+## The Bad
+
+- **Global LaTeX Macros** do not work well out of the box. However this problem
+	is fixable (see @sec-global-macros and this [GitHub
+	Discussion](https://github.com/quarto-dev/quarto-cli/discussions/12838))
+
+- **The reference system**
+  - It is impossible, or at least very difficult, to **reference individual lines**
+  of aligned equations (see @sec-equations-quarto)
+  
+  - It is not possible to use **shared counters** for theorems and lemmas as in LaTeX (see @sec-theorems).
+
+	This makes it more difficult to find a theorem manually, because
+	the numbers on the lemmas do not tell you whether to look before or after.
+	Digitally however this is less relevant since you do not have to manually
+	search. And it is most likely possible to fix this for `LaTeX` with templates,
+	so this could be "fixed" for the print version.
+	
+- **Sync to Code** [SyncTeX](https://github.com/jlaurens/synctex) is an amazing
+tool stores crossreference data in a file. The [LaTeX Workshop
+extension](https://github.com/James-Yu/LaTeX-Workshop/wiki/View#synctex) for
+VSCode uses this file to allow users to `Cmd` + Click on text in the pdf to be directed to the
+LaTeX code that produced this text. Similarly it is possible to jump from code
+to the corresponding place in the pdf. Synctex is similarly integrated with
+other editors. This is something that does not really exist for Quarto. 
+To my knowledge this does not even exist for `html` preview in VSCode so this may
+be very difficult to implement. However there exists a partial WYSIWYG[^wysiwyg] editor for quarto as part of the VSCode extension (right
+click: "Edit in Visual Mode"). The downside of this mode is that 
+	1. it does not preserve existing code
+	2. it does not render Global Macros (@sec-global-macros) correctly
+	3. it is incompatible with the
+	[Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
+	extension of VSCode.
+
+
+## The Ugly
+
+Since Quarto can target `html` it may eventually be possible to make proofs collapsible
+although at the moment this is not possible out of the box. [Callouty
+Theorems](https://github.com/sun123zxy/quarto-callouty-theorem) is an extension
+to make this happen. But the way it does it is ugly:
+
+1. It wraps theorems and proofs
+into callout blocks that are visually too prominent, especially for proofs. 
+2. Since it is only a wrapper, the hover-overs only reference the inner part
+3. and the theorem has two titles, the normal title and the title of the wrapper
 
 [Quarto]: https://quarto.org
 [R markdown]: https://rmarkdown.rstudio.com/
@@ -46,3 +106,4 @@ To learn more about Quarto books visit <https://quarto.org/docs/books>.
 Markdown], both of which are built on the universal document converter [Pandoc].
 [R Markdown] allowed for R code snippets to be included in a markdown document
 which were executed before display. [Quarto] also allows this for Python and JavaScript.
+[^wysiwyg]: What you see is what you get
