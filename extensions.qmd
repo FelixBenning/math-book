@@ -3,7 +3,8 @@
 You may find the following quarto extensions useful
 
 1. **[Callouty Theorems]** wraps Theorems and Proofs into a callout block of your choosing (in particular proofs can be made collapsible)
-2. **[Latex Environment]** wraps quarto divs into a LaTeX environment of your choosing
+2. **[Latex Environment]** wraps quarto divs into a LaTeX environment of your
+choosing.
 3. **[Quarto TikZ]** A filter that renders PGF/TikZ diagrams in HTML as SVG. 
 4. **[honeypot]** Add hidden instructions to HTML homework assignments to help detect cheating by unauthorized LLM usage. 
 

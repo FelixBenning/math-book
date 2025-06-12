@@ -1,16 +1,10 @@
 <script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
 <script type="text/javascript">
-  // support deployment in subdirectories of domains
-  var base = new URL("{{< meta book.site-url >}}").pathname;
-  if (!base.endsWith("/")) base += "/";
-  if (!location.pathname.includes(base)) base = "/"; // local preview
-  console.log(`base: ${base}`)
-  // //
   const h5p_els = document.getElementsByClassName("h5p");
   for(const el of h5p_els){
     const h5p_id = el.id
     const options = {
-    h5pJsonPath: `${base}assets/h5p-content/${h5p_id}`,
+    h5pJsonPath: `./assets/h5p-content/${h5p_id}`, // the ./ is important: https://github.com/tunapanda/h5p-standalone/issues/176
     frameJs: 'assets/h5p-standalone/frame.bundle.js',
     frameCss: 'assets/h5p-standalone/styles/h5p.css',
     }
