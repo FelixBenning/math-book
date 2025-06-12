@@ -260,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
 <p>You may find the following quarto extensions useful</p>
 <ol type="1">
 <li><strong><a href="https://github.com/sun123zxy/quarto-callouty-theorem">Callouty Theorems</a></strong> wraps Theorems and Proofs into a callout block of your choosing (in particular proofs can be made collapsible)</li>
-<li><strong><a href="https://github.com/quarto-ext/latex-environment">Latex Environment</a></strong> wraps quarto divs into a LaTeX environment of your choosing</li>
+<li><strong><a href="https://github.com/quarto-ext/latex-environment">Latex Environment</a></strong> wraps quarto divs into a LaTeX environment of your choosing.</li>
 <li><strong><a href="https://github.com/danmackinlay/quarto_tikz">Quarto TikZ</a></strong> A filter that renders PGF/TikZ diagrams in HTML as SVG.</li>
 <li><strong><a href="https://github.com/jmgirard/honeypot">honeypot</a></strong> Add hidden instructions to HTML homework assignments to help detect cheating by unauthorized LLM usage.</li>
 </ol>
@@ -271,16 +271,16 @@ ul.task-list li input[type="checkbox"] {
 <script type="text/javascript" src="assets/h5p-standalone/main.bundle.js"></script>
 <script type="text/javascript">
   // support deployment in subdirectories of domains
-  var base = new URL("https://unassuming.page/math-book").pathname;
-  if (!base.endsWith("/")) base += "/";
-  if (!location.pathname.includes(base)) base = "/"; // local preview
-  console.log(`base: ${base}`)
+  // var base = new URL("https://unassuming.page/math-book").pathname;
+  // if (!base.endsWith("/")) base += "/";
+  // if (!location.pathname.includes(base)) base = "/"; // local preview
+  // console.log(`base: ${base}`)
   // //
   const h5p_els = document.getElementsByClassName("h5p");
   for(const el of h5p_els){
     const h5p_id = el.id
     const options = {
-    h5pJsonPath: `${base}assets/h5p-content/${h5p_id}`,
+    h5pJsonPath: `./assets/h5p-content/${h5p_id}`,
     frameJs: 'assets/h5p-standalone/frame.bundle.js',
     frameCss: 'assets/h5p-standalone/styles/h5p.css',
     }
