@@ -69,7 +69,7 @@ is H5P's default multiple choice example
 	so this could be "fixed" for the print version.
 	
 - **Sync to Code** [SyncTeX](https://github.com/jlaurens/synctex) is an amazing
-tool stores crossreference data in a file. The [LaTeX Workshop
+tool that stores crossreference data in a file. The [LaTeX Workshop
 extension](https://github.com/James-Yu/LaTeX-Workshop/wiki/View#synctex) for
 VSCode uses this file to allow users to `Cmd` + Click on text in the pdf to be directed to the
 LaTeX code that produced this text. Similarly it is possible to jump from code
