@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Felix Benning">
-<meta name="dcterms.date" content="2025-06-12">
+<meta name="dcterms.date" content="2025-07-17">
 
 <title>Math Book Template</title>
 <style>
@@ -288,7 +288,7 @@ window.Quarto = {
   <li><a href="#h5p-integration-demo" id="toc-h5p-integration-demo" class="nav-link" data-scroll-target="#h5p-integration-demo">H5P integration demo</a></li>
   </ul></li>
   <li><a href="#the-bad" id="toc-the-bad" class="nav-link" data-scroll-target="#the-bad">The Bad</a></li>
-  <li><a href="#the-ugly" id="toc-the-ugly" class="nav-link" data-scroll-target="#the-ugly">The Ugly</a></li>
+  <li><a href="#sec-the-ugly" id="toc-sec-the-ugly" class="nav-link" data-scroll-target="#sec-the-ugly">The Ugly</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/FelixBenning/math-book/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FelixBenning/math-book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/FelixBenning/math-book/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -315,7 +315,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 12, 2025</p>
+      <p class="date">July 17, 2025</p>
     </div>
   </div>
   
@@ -360,22 +360,27 @@ https://github.com/quarto-dev/quarto-cli/discussions/12838#discussioncomment-133
 <h2 class="anchored" data-anchor-id="the-bad">The Bad</h2>
 <ul>
 <li><p><strong>Global LaTeX Macros</strong> do not work well out of the box. However this problem is fixable (see <a href="usage.html#sec-global-macros" class="quarto-xref"><span>Global LaTeX Macros</span></a> and this <a href="https://github.com/quarto-dev/quarto-cli/discussions/12838">GitHub Discussion</a>)</p></li>
-<li><p><strong>The reference system</strong></p>
+<li><p><strong>The Reference System</strong></p>
 <ul>
 <li><p>It is impossible, or at least very difficult, to <strong>reference individual lines</strong> of aligned equations (see <a href="usage.html#sec-equations-quarto" class="quarto-xref"><span>Equations in Quarto</span></a>)</p></li>
 <li><p>It is not possible to use <strong>shared counters</strong> for theorems and lemmas as in LaTeX (see <a href="usage.html#sec-theorems" class="quarto-xref"><span>Theorem environments</span></a>).</p>
 <p>This makes it more difficult to find a theorem manually, because the numbers on the lemmas do not tell you whether to look before or after. Digitally however this is less relevant since you do not have to manually search. And it is most likely possible to fix this for <code>LaTeX</code> with templates, so this could be “fixed” for the print version.</p></li>
 </ul></li>
-<li><p><strong>Sync to Code</strong> <a href="https://github.com/jlaurens/synctex">SyncTeX</a> is an amazing tool stores crossreference data in a file. The <a href="https://github.com/James-Yu/LaTeX-Workshop/wiki/View#synctex">LaTeX Workshop extension</a> for VSCode uses this file to allow users to <code>Cmd</code> + Click on text in the pdf to be directed to the LaTeX code that produced this text. Similarly it is possible to jump from code to the corresponding place in the pdf. Synctex is similarly integrated with other editors. This is something that does not really exist for Quarto. To my knowledge this does not even exist for <code>html</code> preview in VSCode so this may be very difficult to implement. However there exists a partial WYSIWYG<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> editor for quarto as part of the VSCode extension (right click: “Edit in Visual Mode”). The downside of this mode is that</p>
+<li><p><strong>Inconsistent Behavior</strong> Quarto has idiosyncrasies <a href="https://github.com/quarto-dev/quarto-cli/issues/12928">it does not consider bugs</a>: The behavior of</p>
+<pre class="qmd"><code>::: {.proof name="Proof name"}
+Proof content
+:::</code></pre>
+<p>is different for <code>LaTeX</code> and <code>html</code>. In <code>LaTeX</code> it is typical that the name replaces everything. So instead of <code>Proof.</code> it would say <code>Proof name.</code>. Quarto does the same to be “consistent”. However in <code>html</code> the name is only used in brackets after the name, i.e.&nbsp;the end result is <code>Proof (Proof name)</code>. This makes it difficult to use this feature for multi-target documents.</p></li>
+<li><p><strong>Sync to Code</strong> <a href="https://github.com/jlaurens/synctex">SyncTeX</a> is an amazing tool that stores crossreference data in a file. The <a href="https://github.com/James-Yu/LaTeX-Workshop/wiki/View#synctex">LaTeX Workshop extension</a> for VSCode uses this file to allow users to <code>Cmd</code> + Click on text in the pdf to be directed to the <code>LaTeX</code> code that produced this text. Similarly it is possible to jump from code to the corresponding place in the <code>pdf</code>. Synctex is similarly integrated with other editors. This is something that does not really exist for Quarto. To my knowledge this does not even exist for <code>html</code> preview in VSCode so this may be very difficult to implement. However there exists a partial WYSIWYG<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> editor for quarto as part of the VSCode extension (right click: “Edit in Visual Mode”). The downside of this mode is that</p>
 <ol type="1">
 <li>it does not preserve existing code</li>
 <li>it does not render Global Macros (<a href="usage.html#sec-global-macros" class="quarto-xref"><span>Global LaTeX Macros</span></a>) correctly</li>
-<li>it is incompatible with the <a href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">Vim</a> extension of VSCode.</li>
+<li>it is incompatible with the <a href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">Vim</a> extension of VSCode that I personally like.</li>
 </ol></li>
 </ul>
 </section>
-<section id="the-ugly" class="level2">
-<h2 class="anchored" data-anchor-id="the-ugly">The Ugly</h2>
+<section id="sec-the-ugly" class="level2">
+<h2 class="anchored" data-anchor-id="sec-the-ugly">The Ugly</h2>
 <p>Since Quarto can target <code>html</code> it may eventually be possible to make proofs collapsible although at the moment this is not possible out of the box. <a href="https://github.com/sun123zxy/quarto-callouty-theorem">Callouty Theorems</a> is an extension to make this happen. But the way it does it is ugly:</p>
 <ol type="1">
 <li>It wraps theorems and proofs into callout blocks that are visually too prominent, especially for proofs.</li>
