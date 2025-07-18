@@ -56,7 +56,7 @@ is H5P's default multiple choice example
 	is fixable (see @sec-global-macros and this [GitHub
 	Discussion](https://github.com/quarto-dev/quarto-cli/discussions/12838))
 
-- **The reference system**
+- **The Reference System**
   - It is impossible, or at least very difficult, to **reference individual lines**
   of aligned equations (see @sec-equations-quarto)
   
@@ -67,13 +67,26 @@ is H5P's default multiple choice example
 	Digitally however this is less relevant since you do not have to manually
 	search. And it is most likely possible to fix this for `LaTeX` with templates,
 	so this could be "fixed" for the print version.
+
+- **Inconsistent Behavior** Quarto has idiosyncrasies [it does not consider bugs](https://github.com/quarto-dev/quarto-cli/issues/12928): The behavior of
+  ```qmd
+  ::: {.proof name="Proof name"}
+  Proof content
+  :::
+  ```
+  is different for `LaTeX` and `html`. In `LaTeX` it is typical that the name
+  replaces everything.  So instead of `Proof.` it would say `Proof name.`.
+  Quarto does the same to be "consistent".  However in `html` the name is only
+  used in brackets after the name, i.e. the end result is `Proof (Proof name)`.
+  This makes it difficult to use this feature for multi-target documents.
+
 	
 - **Sync to Code** [SyncTeX](https://github.com/jlaurens/synctex) is an amazing
 tool that stores crossreference data in a file. The [LaTeX Workshop
 extension](https://github.com/James-Yu/LaTeX-Workshop/wiki/View#synctex) for
 VSCode uses this file to allow users to `Cmd` + Click on text in the pdf to be directed to the
-LaTeX code that produced this text. Similarly it is possible to jump from code
-to the corresponding place in the pdf. Synctex is similarly integrated with
+`LaTeX` code that produced this text. Similarly it is possible to jump from code
+to the corresponding place in the `pdf`. Synctex is similarly integrated with
 other editors. This is something that does not really exist for Quarto. 
 To my knowledge this does not even exist for `html` preview in VSCode so this may
 be very difficult to implement. However there exists a partial WYSIWYG[^wysiwyg] editor for quarto as part of the VSCode extension (right
@@ -82,10 +95,10 @@ click: "Edit in Visual Mode"). The downside of this mode is that
 	2. it does not render Global Macros (@sec-global-macros) correctly
 	3. it is incompatible with the
 	[Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
-	extension of VSCode.
+	extension of VSCode that I personally like.
 
 
-## The Ugly
+## The Ugly {#sec-the-ugly}
 
 Since Quarto can target `html` it may eventually be possible to make proofs collapsible
 although at the moment this is not possible out of the box. [Callouty
